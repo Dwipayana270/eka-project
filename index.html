@@ -1,1 +1,1069 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTEGRAL - Inovasi Terpadu untuk Edukasi Matematika Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        .dark ::-webkit-scrollbar-track { background: #374151; }
+        .dark ::-webkit-scrollbar-thumb { background: #6b7280; }
+        
+        /* Focus styles */
+        *:focus { outline: 2px solid #3b82f6; outline-offset: 2px; }
+        
+        /* Animations */
+        @keyframes slideIn { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .slide-in { animation: slideIn 0.3s ease-out; }
+        .fade-in { animation: fadeIn 0.3s ease-out; }
+        
+        /* Toast styles */
+        .toast { position: fixed; bottom: 20px; right: 20px; z-index: 9999; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 transition-colors duration-300 dark:bg-gray-800 dark:text-gray-100">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-lg transition-colors duration-300 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <button id="menuToggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" aria-label="Menu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <h1 class="ml-2 text-xl font-bold text-indigo-600 dark:text-indigo-400">INTEGRAL</h1>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#beranda" class="nav-link px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition">Beranda</a>
+                    <a href="#petunjuk" class="nav-link px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition">Petunjuk</a>
+                    <a href="#tujuan" class="nav-link px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition">Tujuan</a>
+                    <a href="#bahan-ajar" class="nav-link px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition">Bahan Ajar</a>
+                    <a href="#latihan" class="nav-link px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition">Latihan</a>
+                    <a href="#refleksi" class="nav-link px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition">Refleksi</a>
+                    <a href="#sumber" class="nav-link px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition">Sumber</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="themeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="fixed inset-y-0 left-0 z-40 w-64 bg-white shadow-xl transform -translate-x-full transition-transform duration-300 dark:bg-gray-900">
+        <div class="p-4">
+            <button id="closeDrawer" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        <nav class="px-4 pb-4">
+            <a href="#beranda" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">Beranda</a>
+            <a href="#petunjuk" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">Petunjuk</a>
+            <a href="#tujuan" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">Tujuan</a>
+            <a href="#bahan-ajar" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">Bahan Ajar</a>
+            <a href="#latihan" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">Latihan</a>
+            <a href="#refleksi" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">Refleksi</a>
+            <a href="#sumber" class="block py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">Sumber</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main id="app" class="container mx-auto px-4 py-8 min-h-screen">
+        <!-- Content will be dynamically loaded here -->
+    </main>
+
+    <!-- Material Modal -->
+    <dialog id="materialModal" class="p-0 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+        <div class="bg-white dark:bg-gray-900">
+            <div class="p-6 border-b dark:border-gray-700">
+                <h2 id="modalTitle" class="text-2xl font-bold"></h2>
+                <button onclick="closeMaterialModal()" class="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="modalContent" class="p-6 overflow-y-auto max-h-[60vh]"></div>
+        </div>
+    </dialog>
+
+    <!-- Toast Container -->
+    <div id="toastContainer"></div>
+
+    <script>
+        // Data
+        const materials = [
+            {
+                id: 1,
+                title: "Pengenalan Polinomial",
+                type: "materi",
+                topic: "polinomial",
+                description: "Memahami konsep dasar polinomial, derajat, dan operasi dasar",
+                duration: "15 menit",
+                content: `
+                    <h3 class="text-xl font-bold mb-4">Pengenalan Polinomial</h3>
+                    <p class="mb-4">Polinomial adalah ekspresi aljabar yang terdiri dari variabel dan koefisien, dengan operasi penjumlahan, pengurangan, perkalian, dan pangkat bilangan bulat non-negatif.</p>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Bentuk Umum Polinomial</h4>
+                    <p class="mb-4">Bentuk umum polinomial dalam variabel x adalah:</p>
+                    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
+                        $$P(x) = a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$$
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Contoh:</h4>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>$P(x) = 2x^3 - 5x^2 + 3x - 7$ (derajat 3)</li>
+                        <li>$Q(x) = x^2 + 4$ (derajat 2)</li>
+                        <li>$R(x) = 5x - 1$ (derajat 1)</li>
+                    </ul>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Operasi Dasar Polinomial</h4>
+                    <p class="mb-4">1. Penjumlahan: $(2x^2 + 3x + 1) + (x^2 - 2x + 4) = 3x^2 + x + 5$</p>
+                    <p class="mb-4">2. Pengurangan: $(3x^2 + 2x) - (x^2 + x) = 2x^2 + x$</p>
+                    <p class="mb-4">3. Perkalian: $(x + 2)(x - 3) = x^2 - x - 6$</p>
+                `
+            },
+            {
+                id: 2,
+                title: "Operasi Matriks Dasar",
+                type: "materi",
+                topic: "matriks",
+                description: "Penjumlahan, pengurangan, dan perkalian matriks",
+                duration: "20 menit",
+                content: `
+                    <h3 class="text-xl font-bold mb-4">Operasi Matriks Dasar</h3>
+                    <p class="mb-4">Matriks adalah susunan bilangan dalam baris dan kolom. Operasi dasar matriks meliputi penjumlahan, pengurangan, dan perkalian.</p>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Penjumlahan Matriks</h4>
+                    <p class="mb-4">Dua matriks dapat dijumlahkan jika memiliki ordo yang sama.</p>
+                    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
+                        $$A + B = \\begin{bmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\end{bmatrix} + \\begin{bmatrix} b_{11} & b_{12} \\\\ b_{21} & b_{22} \\end{bmatrix} = \\begin{bmatrix} a_{11}+b_{11} & a_{12}+b_{12} \\\\ a_{21}+b_{21} & a_{22}+b_{22} \\end{bmatrix}$$
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Perkalian Matriks</h4>
+                    <p class="mb-4">Matriks A berordo m×n dapat dikalikan dengan matriks B berordo n×p, menghasilkan matriks C berordo m×p.</p>
+                    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
+                        $$C_{ij} = \\sum_{k=1}^{n} A_{ik} \\times B_{kj}$$
+                    </div>
+                `
+            },
+            {
+                id: 3,
+                title: "Transformasi Translasi",
+                type: "materi",
+                topic: "transformasi",
+                description: "Memahami konsep translasi dalam transformasi geometri",
+                duration: "10 menit",
+                content: `
+                    <h3 class="text-xl font-bold mb-4">Transformasi Translasi</h3>
+                    <p class="mb-4">Translasi adalah pergeseran semua titik pada bidang dengan jarak dan arah yang sama.</p>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Vektor Translasi</h4>
+                    <p class="mb-4">Translasi dinyatakan dengan vektor $\\vec{T} = \\begin{pmatrix} a \\\\ b \\end{pmatrix}$</p>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Rumus Translasi</h4>
+                    <p class="mb-4">Jika titik $P(x,y)$ ditranslasi oleh vektor $\\vec{T}$, maka bayangannya adalah:</p>
+                    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
+                        $$P'(x',y') = (x + a, y + b)$$
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Contoh:</h4>
+                    <p class="mb-4">Titik $A(2,3)$ ditranslasi oleh $\\vec{T} = \\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix}$</p>
+                    <p class="mb-4">Maka $A' = (2+4, 3+(-1)) = (6,2)$</p>
+                `
+            },
+            {
+                id: 4,
+                title: "Faktorisasi Polinomial",
+                type: "latihan",
+                topic: "polinomial",
+                description: "Teknik memfaktorkan polinomial tingkat tinggi",
+                duration: "25 menit",
+                content: `
+                    <h3 class="text-xl font-bold mb-4">Faktorisasi Polinomial</h3>
+                    <p class="mb-4">Faktorisasi polinomial adalah proses menguraikan polinomial menjadi perkalian faktor-faktor yang lebih sederhana.</p>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Metode Faktorisasi</h4>
+                    <ol class="list-decimal list-inside mb-4">
+                        <li>Pengelompokan: $x^3 + 2x^2 + 3x + 6 = x^2(x+2) + 3(x+2) = (x^2+3)(x+2)$</li>
+                        <li>Rumus selisih kuadrat: $x^2 - 9 = (x-3)(x+3)$</li>
+                        <li>Rumus jumlah/selisih kubik: $x^3 - 8 = (x-2)(x^2+2x+4)$</li>
+                    </ol>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Teorema Faktor</h4>
+                    <p class="mb-4">Jika $P(a) = 0$, maka $(x-a)$ adalah faktor dari $P(x)$.</p>
+                `
+            },
+            {
+                id: 5,
+                title: "Determinan dan Invers Matriks",
+                type: "materi",
+                topic: "matriks",
+                description: "Menghitung determinan dan invers matriks 2x2 dan 3x3",
+                duration: "30 menit",
+                content: `
+                    <h3 class="text-xl font-bold mb-4">Determinan dan Invers Matriks</h3>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Determinan Matriks 2×2</h4>
+                    <p class="mb-4">Untuk matriks $A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$, determinannya adalah:</p>
+                    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
+                        $$\\det(A) = ad - bc$$
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Invers Matriks 2×2</h4>
+                    <p class="mb-4">Jika $\\det(A) \\neq 0$, maka invers matriks A adalah:</p>
+                    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
+                        $$A^{-1} = \\frac{1}{\\det(A)} \\begin{bmatrix} d & -b \\\\ -c & a \\end{bmatrix}$$
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Contoh:</h4>
+                    <p class="mb-4">Matriks $B = \\begin{bmatrix} 2 & 3 \\\\ 1 & 4 \\end{bmatrix}$</p>
+                    <p class="mb-4">$\\det(B) = (2)(4) - (3)(1) = 8 - 3 = 5$</p>
+                    <p class="mb-4">$B^{-1} = \\frac{1}{5} \\begin{bmatrix} 4 & -3 \\\\ -1 & 2 \\end{bmatrix}$</p>
+                `
+            }
+        ];
+
+        const questions = [
+            {
+                id: 1,
+                type: "mcq",
+                question: "Derajat dari polinomial $P(x) = 3x^4 - 2x^3 + 5x - 7$ adalah...",
+                options: ["1", "2", "3", "4"],
+                correct: 3,
+                explanation: "Derajat polinomial adalah pangkat tertinggi dari variabel, yaitu 4."
+            },
+            {
+                id: 2,
+                type: "mcq",
+                question: "Hasil dari $\\begin{bmatrix} 2 & 3 \\\\ 1 & 4 \\end{bmatrix} + \\begin{bmatrix} 1 & -1 \\\\ 2 & 0 \\end{bmatrix}$ adalah...",
+                options: [
+                    "$\\begin{bmatrix} 3 & 2 \\\\ 3 & 4 \\end{bmatrix}$",
+                    "$\\begin{bmatrix} 3 & 2 \\\\ 3 & 4 \\end{bmatrix}$",
+                    "$\\begin{bmatrix} 3 & 2 \\\\ 3 & 4 \\end{bmatrix}$",
+                    "$\\begin{bmatrix} 3 & 2 \\\\ 3 & 4 \\end{bmatrix}$"
+                ],
+                correct: 0,
+                explanation: "Penjumlahan matriks dilakukan elemen per elemen."
+            },
+            {
+                id: 3,
+                type: "short",
+                question: "Jika titik A(3,5) ditranslasi oleh vektor $\\vec{T} = \\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$, koordinat bayangannya adalah...",
+                answer: "1,8",
+                explanation: "A' = (3 + (-2), 5 + 3) = (1, 8)"
+            },
+            {
+                id: 4,
+                type: "mcq",
+                question: "Faktorisasi dari $x^2 - 9$ adalah...",
+                options: ["(x-3)(x-3)", "(x+3)(x+3)", "(x-3)(x+3)", "x(x-9)"],
+                correct: 2,
+                explanation: "Menggunakan rumus selisih kuadrat: $a^2 - b^2 = (a-b)(a+b)$"
+            },
+            {
+                id: 5,
+                type: "short",
+                question: "Determinan dari matriks $\\begin{bmatrix} 5 & 2 \\\\ 3 & 4 \\end{bmatrix}$ adalah...",
+                answer: "14",
+                explanation: "det = (5)(4) - (2)(3) = 20 - 6 = 14"
+            },
+            {
+                id: 6,
+                type: "mcq",
+                question: "Transformasi yang menggeser semua titik dengan jarak dan arah yang sama disebut...",
+                options: ["Rotasi", "Translasi", "Refleksi", "Dilatasi"],
+                correct: 1,
+                explanation: "Translasi adalah pergeseran semua titik dengan vektor yang sama."
+            },
+            {
+                id: 7,
+                type: "short",
+                question: "Jika $P(x) = x^3 - 6x^2 + 11x - 6$ dan P(1) = 0, maka salah satu faktornya adalah...",
+                answer: "x-1",
+                explanation: "Karena P(1) = 0, menurut teorema faktor, (x-1) adalah faktor."
+            },
+            {
+                id: 8,
+                type: "mcq",
+                question: "Hasil perkalian $\\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix} \\times \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix}$ adalah...",
+                options: [
+                    "$\\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}$",
+                    "$\\begin{bmatrix} 5 & 12 \\\\ 21 & 32 \\end{bmatrix}$",
+                    "$\\begin{bmatrix} 6 & 8 \\\\ 10 & 12 \\end{bmatrix}$",
+                    "$\\begin{bmatrix} 23 & 34 \\\\ 31 & 46 \\end{bmatrix}$"
+                ],
+                correct: 0,
+                explanation: "Perkalian matriks: baris pertama kolom pertama = (1)(5) + (2)(7) = 19"
+            }
+        ];
+
+        const reflectionQuestions = [
+            "Apa konsep matematika yang paling kamu pahami hari ini?",
+            "Bagian mana yang masih membingungkan dan perlu dipelajari lagi?",
+            "Bagaimana kamu menerapkan konsep ini dalam kehidupan sehari-hari?"
+        ];
+
+        // State management
+        let currentQuizAnswers = {};
+        let quizScore = 0;
+        let quizCompleted = false;
+
+        // Utility functions
+        function save(key, value) {
+            localStorage.setItem(key, JSON.stringify(value));
+        }
+
+        function load(key, defaultValue = null) {
+            const item = localStorage.getItem(key);
+            return item ? JSON.parse(item) : defaultValue;
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `toast px-6 py-3 rounded-lg shadow-lg text-white fade-in ${
+                type === 'success' ? 'bg-emerald-500' : 
+                type === 'error' ? 'bg-red-500' : 
+                'bg-blue-500'
+            }`;
+            toast.innerHTML = `
+                <div class="flex items-center space-x-2">
+                    <i class="fas ${
+                        type === 'success' ? 'fa-check-circle' : 
+                        type === 'error' ? 'fa-exclamation-circle' : 
+                        'fa-info-circle'
+                    }"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.getElementById('toastContainer').appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Theme management
+        function initTheme() {
+            const theme = load('theme', 'light');
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        }
+
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            save('theme', theme);
+        }
+
+        // Router
+        function router() {
+            const hash = window.location.hash.slice(1) || 'beranda';
+            const app = document.getElementById('app');
+            
+            // Close mobile drawer
+            document.getElementById('mobileDrawer').classList.add('-translate-x-full');
+            
+            switch(hash) {
+                case 'beranda':
+                    renderHome();
+                    break;
+                case 'petunjuk':
+                    renderInstructions();
+                    break;
+                case 'tujuan':
+                    renderGoals();
+                    break;
+                case 'bahan-ajar':
+                    renderMaterials();
+                    break;
+                case 'latihan':
+                    renderQuiz();
+                    break;
+                case 'refleksi':
+                    renderReflection();
+                    break;
+                case 'sumber':
+                    renderResources();
+                    break;
+                default:
+                    renderHome();
+            }
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('bg-indigo-100', 'dark:bg-indigo-900', 'text-indigo-600', 'dark:text-indigo-300');
+                if (link.getAttribute('href') === `#${hash}`) {
+                    link.classList.add('bg-indigo-100', 'dark:bg-indigo-900', 'text-indigo-600', 'dark:text-indigo-300');
+                }
+            });
+        }
+
+        // Page renderers
+        function renderHome() {
+            const app = document.getElementById('app');
+            app.innerHTML = `
+                <section class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12 fade-in">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">
+                            INTEGRAL
+                        </h1>
+                        <p class="text-xl md:text-2xl mb-4 text-gray-700 dark:text-gray-300">
+                            Inovasi Terpadu untuk Edukasi Matematika Digital
+                        </p>
+                        <p class="text-lg mb-8 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                            Platform pembelajaran matematika interaktif untuk siswa kelas XI dengan kurikulum merdeka. 
+                            Pelajari Polinomial, Matriks, dan Transformasi Geometri dengan cara yang menyenangkan!
+                        </p>
+                        <a href="#bahan-ajar" class="inline-block px-8 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transform hover:scale-105 transition-all duration-200 shadow-lg">
+                            <i class="fas fa-play mr-2"></i> Mulai Belajar
+                        </a>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mt-16">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                            <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-book text-indigo-600 dark:text-indigo-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Materi Lengkap</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Pembelajaran interaktif dengan contoh-contoh nyata dan visualisasi menarik.</p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                            <div class="w-12 h-12 bg-sky-100 dark:bg-sky-900 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-clipboard-check text-sky-600 dark:text-sky-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Latihan Interaktif</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Uji pemahaman dengan berbagai jenis soal dan dapatkan feedback langsung.</p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                            <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-chart-line text-emerald-600 dark:text-emerald-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Progress Tracking</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Pantau perkembangan belajar dan simpan catatan refleksi pribadi.</p>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        function renderInstructions() {
+            const app = document.getElementById('app');
+            app.innerHTML = `
+                <section class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-8 text-indigo-600 dark:text-indigo-400">Petunjuk Penggunaan</h2>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fas fa-laptop mr-3 text-indigo-600 dark:text-indigo-400"></i>
+                            Cara Menggunakan Platform
+                        </h3>
+                        <ol class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-semibold mr-3">1</span>
+                                <p><strong>Navigasi:</strong> Gunakan menu di atas untuk berpindah antar halaman. Di mobile, klik ikon menu untuk membuka drawer.</p>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-semibold mr-3">2</span>
+                                <p><strong>Bahan Ajar:</strong> Pilih materi yang ingin dipelajari, gunakan filter untuk mempersempit pencarian.</p>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-semibold mr-3">3</span>
+                                <p><strong>Latihan:</strong> Jawab soal-soal untuk menguji pemahaman. Skor akan otomatis tersimpan.</p>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-semibold mr-3">4</span>
+                                <p><strong>Refleksi:</strong> Tulis catatan pembelajaran pribadi untuk meningkatkan pemahaman.</p>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fas fa-mobile-alt mr-3 text-sky-600 dark:text-sky-400"></i>
+                            Perangkat yang Disarankan
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold mb-2 text-emerald-600 dark:text-emerald-400">Minimum Requirements</h4>
+                                <ul class="space-y-1 text-gray-600 dark:text-gray-400">
+                                    <li>• Browser: Chrome 90+, Firefox 88+, Safari 14+</li>
+                                    <li>• Layar: Minimum 320px width</li>
+                                    <li>• Koneksi: Internet stabil untuk load MathJax</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2 text-emerald-600 dark:text-emerald-400">Optimal Experience</h4>
+                                <ul class="space-y-1 text-gray-600 dark:text-gray-400">
+                                    <li>• Browser terbaru dengan JavaScript enabled</li>
+                                    <li>• Layar 13" atau lebih besar</li>
+                                    <li>• Koneksi internet 4G+ atau WiFi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        function renderGoals() {
+            const app = document.getElementById('app');
+            app.innerHTML = `
+                <section class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-8 text-indigo-600 dark:text-indigo-400">Tujuan Pembelajaran</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-check text-emerald-600 dark:text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-1">Memahami Konsep Dasar</h3>
+                                    <p class="text-gray-600 dark:text-gray-400">Siswa dapat menjelaskan konsep fundamental polinomial, matriks, dan transformasi geometri dengan benar.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-check text-emerald-600 dark:text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-1">Melakukan Operasi Matematika</h3>
+                                    <p class="text-gray-600 dark:text-gray-400">Siswa mampu melakukan operasi dasar pada polinomial, matriks, dan transformasi geometri secara akurat.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-check text-emerald-600 dark:text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-1">Memecahkan Masalah</h3>
+                                    <p class="text-gray-600 dark:text-gray-400">Siswa dapat menerapkan konsep-konsep yang dipelajari untuk menyelesaikan soal-soal aplikasi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-check text-emerald-600 dark:text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-1">Menganalisis Hasil</h3>
+                                    <p class="text-gray-600 dark:text-gray-400">Siswa mampu menganalisis dan menafsirkan hasil dari operasi matematika yang dilakukan.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-check text-emerald-600 dark:text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-1">Mengembangkan Kemandirian</h3>
+                                    <p class="text-gray-600 dark:text-gray-400">Siswa dapat belajar secara mandiri dengan memanfaatkan fitur refleksi dan progress tracking.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        function renderMaterials() {
+            const app = document.getElementById('app');
+            const completedMaterials = load('completedMaterials', []);
+            
+            app.innerHTML = `
+                <section class="max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-8 text-indigo-600 dark:text-indigo-400">Bahan Ajar</h2>
+                    
+                    <!-- Filters and Search -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 mb-8">
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div>
+                                <label for="typeFilter" class="block text-sm font-medium mb-2">Jenis</label>
+                                <select id="typeFilter" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-indigo-500">
+                                    <option value="">Semua Jenis</option>
+                                    <option value="materi">Materi</option>
+                                    <option value="latihan">Latihan</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="topicFilter" class="block text-sm font-medium mb-2">Topik</label>
+                                <select id="topicFilter" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-indigo-500">
+                                    <option value="">Semua Topik</option>
+                                    <option value="polinomial">Polinomial</option>
+                                    <option value="matriks">Matriks</option>
+                                    <option value="transformasi">Transformasi Geometri</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="searchInput" class="block text-sm font-medium mb-2">Pencarian</label>
+                                <input type="text" id="searchInput" placeholder="Cari materi..." class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Materials Grid -->
+                    <div id="materialsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Materials will be rendered here -->
+                    </div>
+                </section>
+            `;
+            
+            renderMaterialsGrid();
+            
+            // Add event listeners
+            document.getElementById('typeFilter').addEventListener('change', renderMaterialsGrid);
+            document.getElementById('topicFilter').addEventListener('change', renderMaterialsGrid);
+            document.getElementById('searchInput').addEventListener('input', renderMaterialsGrid);
+        }
+
+        function renderMaterialsGrid() {
+            const grid = document.getElementById('materialsGrid');
+            const typeFilter = document.getElementById('typeFilter').value;
+            const topicFilter = document.getElementById('topicFilter').value;
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const completedMaterials = load('completedMaterials', []);
+            
+            let filteredMaterials = materials.filter(material => {
+                const matchesType = !typeFilter || material.type === typeFilter;
+                const matchesTopic = !topicFilter || material.topic === topicFilter;
+                const matchesSearch = !searchTerm || 
+                    material.title.toLowerCase().includes(searchTerm) ||
+                    material.description.toLowerCase().includes(searchTerm);
+                
+                return matchesType && matchesTopic && matchesSearch;
+            });
+            
+            grid.innerHTML = filteredMaterials.map(material => `
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <span class="px-3 py-1 text-xs font-semibold rounded-full ${
+                                material.type === 'materi' ? 'bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400' :
+                                'bg-sky-100 dark:bg-sky-900 text-sky-600 dark:text-sky-400'
+                            }">
+                                ${material.type === 'materi' ? 'Materi' : 'Latihan'}
+                            </span>
+                            ${completedMaterials.includes(material.id) ? 
+                                '<i class="fas fa-check-circle text-emerald-500"></i>' : 
+                                ''
+                            }
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">${material.title}</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">${material.description}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-clock mr-1"></i> ${material.duration}
+                            </span>
+                            <button onclick="openMaterial(${material.id})" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                                Buka
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openMaterial(id) {
+            const material = materials.find(m => m.id === id);
+            if (!material) return;
+            
+            const modal = document.getElementById('materialModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            
+            modalTitle.textContent = material.title;
+            modalContent.innerHTML = material.content;
+            
+            modal.showModal();
+            
+            // Mark as completed
+            const completedMaterials = load('completedMaterials', []);
+            if (!completedMaterials.includes(id)) {
+                completedMaterials.push(id);
+                save('completedMaterials', completedMaterials);
+                showToast('Materi ditandai selesai!');
+            }
+            
+            // Re-render MathJax
+            if (window.MathJax) {
+                MathJax.typesetPromise([modalContent]).catch((err) => console.log(err.message));
+            }
+        }
+
+        function closeMaterialModal() {
+            document.getElementById('materialModal').close();
+        }
+
+        function renderQuiz() {
+            const app = document.getElementById('app');
+            const savedScore = load('quizScore', null);
+            
+            app.innerHTML = `
+                <section class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-8 text-indigo-600 dark:text-indigo-400">Latihan & Quiz</h2>
+                    
+                    ${savedScore ? `
+                        <div class="bg-emerald-100 dark:bg-emerald-900 rounded-2xl p-6 mb-8">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-emerald-800 dark:text-emerald-200">Skor Terakhir</h3>
+                                    <p class="text-3xl font-bold text-emerald-600 dark:text-emerald-400">${savedScore.score}/${savedScore.total} (${savedScore.percentage}%)</p>
+                                </div>
+                                <button onclick="resetQuiz()" class="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">
+                                    <i class="fas fa-redo mr-2"></i>Ulangi Quiz
+                                </button>
+                            </div>
+                        </div>
+                    ` : ''}
+                    
+                    <div id="quizContainer" class="space-y-6">
+                        <!-- Questions will be rendered here -->
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <button id="finishQuizBtn" onclick="finishQuiz()" class="px-8 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                            <i class="fas fa-check mr-2"></i>Selesai
+                        </button>
+                    </div>
+                </section>
+            `;
+            
+            renderQuizQuestions();
+        }
+
+        function renderQuizQuestions() {
+            const container = document.getElementById('quizContainer');
+            currentQuizAnswers = {};
+            quizScore = 0;
+            quizCompleted = false;
+            
+            container.innerHTML = questions.map((q, index) => `
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold mb-4">
+                        <span class="text-indigo-600 dark:text-indigo-400">${index + 1}.</span> ${q.question}
+                    </h3>
+                    ${q.type === 'mcq' ? `
+                        <div class="space-y-2">
+                            ${q.options.map((option, optIndex) => `
+                                <label class="flex items-center p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition">
+                                    <input type="radio" name="question_${q.id}" value="${optIndex}" 
+                                           onchange="checkAnswer(${q.id}, ${optIndex})" 
+                                           class="mr-3 text-indigo-600 focus:ring-indigo-500">
+                                    <span>${option}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    ` : `
+                        <div class="space-y-2">
+                            <input type="text" id="answer_${q.id}" placeholder="Jawaban..." 
+                                   oninput="checkAnswer(${q.id}, this.value)"
+                                   class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                    `}
+                    <div id="feedback_${q.id}" class="mt-4 hidden">
+                        <!-- Feedback will be shown here -->
+                    </div>
+                </div>
+            `).join('');
+            
+            // Re-render MathJax
+            if (window.MathJax) {
+                MathJax.typesetPromise([container]).catch((err) => console.log(err.message));
+            }
+        }
+
+        function checkAnswer(questionId, answer) {
+            const question = questions.find(q => q.id === questionId);
+            const feedbackDiv = document.getElementById(`feedback_${questionId}`);
+            
+            currentQuizAnswers[questionId] = answer;
+            
+            let isCorrect = false;
+            if (question.type === 'mcq') {
+                isCorrect = answer === question.correct;
+            } else {
+                isCorrect = answer.toLowerCase().replace(/\s/g, '') === question.answer.toLowerCase().replace(/\s/g, '');
+            }
+            
+            feedbackDiv.innerHTML = `
+                <div class="p-4 rounded-lg ${isCorrect ? 'bg-emerald-100 dark:bg-emerald-900' : 'bg-red-100 dark:bg-red-900'}">
+                    <p class="${isCorrect ? 'text-emerald-800 dark:text-emerald-200' : 'text-red-800 dark:text-red-200'}">
+                        <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'} mr-2"></i>
+                        ${isCorrect ? 'Benar!' : 'Salah'} ${question.explanation}
+                    </p>
+                </div>
+            `;
+            feedbackDiv.classList.remove('hidden');
+            
+            // Check if all questions are answered
+            const allAnswered = questions.every(q => currentQuizAnswers[q.id] !== undefined);
+            document.getElementById('finishQuizBtn').disabled = !allAnswered;
+        }
+
+        function finishQuiz() {
+            if (quizCompleted) return;
+            
+            quizCompleted = true;
+            let correctCount = 0;
+            
+            questions.forEach(q => {
+                const answer = currentQuizAnswers[q.id];
+                if (q.type === 'mcq' && answer === q.correct) {
+                    correctCount++;
+                } else if (q.type === 'short' && answer.toLowerCase().replace(/\s/g, '') === q.answer.toLowerCase().replace(/\s/g, '')) {
+                    correctCount++;
+                }
+            });
+            
+            const percentage = Math.round((correctCount / questions.length) * 100);
+            const scoreData = {
+                score: correctCount,
+                total: questions.length,
+                percentage: percentage,
+                date: new Date().toISOString()
+            };
+            
+            save('quizScore', scoreData);
+            showToast(`Quiz selesai! Skor: ${correctCount}/${questions.length} (${percentage}%)`, 'success');
+            
+            // Update UI
+            renderQuiz();
+        }
+
+        function resetQuiz() {
+            localStorage.removeItem('quizScore');
+            currentQuizAnswers = {};
+            quizScore = 0;
+            quizCompleted = false;
+            renderQuiz();
+        }
+
+        function renderReflection() {
+            const app = document.getElementById('app');
+            const reflections = load('reflections', []);
+            
+            app.innerHTML = `
+                <section class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-8 text-indigo-600 dark:text-indigo-400">Refleksi Pembelajaran</h2>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8">
+                        <h3 class="text-xl font-semibold mb-6">Tulis Refleksi Anda</h3>
+                        <form onsubmit="saveReflection(event)" class="space-y-4">
+                            ${reflectionQuestions.map((question, index) => `
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">
+                                        <span class="text-indigo-600 dark:text-indigo-400">${index + 1}.</span> ${question}
+                                    </label>
+                                    <textarea name="reflection_${index}" rows="3" required
+                                              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-indigo-500"
+                                              placeholder="Tuliskan jawaban Anda..."></textarea>
+                                </div>
+                            `).join('')}
+                            <button type="submit" class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                                <i class="fas fa-save mr-2"></i>Simpan Refleksi
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+                        <h3 class="text-xl font-semibold mb-6">Refleksi Sebelumnya</h3>
+                        <div id="reflectionsList" class="space-y-4">
+                            ${reflections.length === 0 ? 
+                                '<p class="text-gray-500 dark:text-gray-400 text-center py-8">Belum ada refleksi tersimpan</p>' :
+                                reflections.map(ref => `
+                                    <div class="border-l-4 border-indigo-500 pl-4 py-2">
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                                            <i class="fas fa-calendar mr-1"></i> ${new Date(ref.date).toLocaleDateString('id-ID')}
+                                        </p>
+                                        ${reflectionQuestions.map((q, i) => `
+                                            <div class="mb-3">
+                                                <p class="font-medium text-sm mb-1">${q}</p>
+                                                <p class="text-gray-600 dark:text-gray-400">${ref.answers[i]}</p>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                `).join('')
+                            }
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        function saveReflection(event) {
+            event.preventDefault();
+            
+            const answers = [];
+            reflectionQuestions.forEach((_, index) => {
+                const value = event.target[`reflection_${index}`].value;
+                answers.push(value);
+            });
+            
+            const reflection = {
+                answers: answers,
+                date: new Date().toISOString()
+            };
+            
+            const reflections = load('reflections', []);
+            reflections.unshift(reflection);
+            save('reflections', reflections);
+            
+            showToast('Refleksi berhasil disimpan!', 'success');
+            event.target.reset();
+            renderReflection();
+        }
+
+        function renderResources() {
+            const app = document.getElementById('app');
+            app.innerHTML = `
+                <section class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-8 text-indigo-600 dark:text-indigo-400">Sumber & Referensi</h2>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8">
+                        <h3 class="text-xl font-semibold mb-6">Referensi Pembelajaran</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-indigo-500 pl-4">
+                                <h4 class="font-semibold">Buku Matematika Kelas XI Kurikulum Merdeka</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi</p>
+                            </div>
+                            <div class="border-l-4 border-indigo-500 pl-4">
+                                <h4 class="font-semibold">Aljabar Linear dan Aplikasinya</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Howard Anton, Chris Rorres</p>
+                            </div>
+                            <div class="border-l-4 border-indigo-500 pl-4">
+                                <h4 class="font-semibold">Geometri Transformasi</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Departemen Pendidikan Nasional</p>
+                            </div>
+                            <div class="border-l-4 border-indigo-500 pl-4">
+                                <h4 class="font-semibold">Khan Academy - Polynomials</h4>
+                                <p class="text-gray-600 dark:text-gray-400">https://www.khanacademy.org/math/algebra2/x2ec2f6f830c9fb89:poly-factor</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8">
+                        <h3 class="text-xl font-semibold mb-6">Hubungi Guru</h3>
+                        <form onsubmit="sendToWhatsApp(event)" class="space-y-4">
+                            <div>
+                                <label for="studentName" class="block text-sm font-medium mb-2">Nama Lengkap</label>
+                                <input type="text" id="studentName" required
+                                       class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label for="messageDate" class="block text-sm font-medium mb-2">Tanggal</label>
+                                <input type="date" id="messageDate" required
+                                       class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-2">Pesan</label>
+                                <textarea id="message" rows="4" required
+                                          class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-indigo-500"
+                                          placeholder="Tuliskan pesan Anda..."></textarea>
+                            </div>
+                            <button type="submit" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                                <i class="fab fa-whatsapp mr-2"></i>Kirim via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold mb-3">Catatan Lisensi</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            Platform INTEGRAL dikembangkan untuk tujuan pendidikan. Konten dilindungi oleh lisensi Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International. 
+                            Anda bebas menggunakan, memodifikasi, dan berbagi untuk tujuan non-komersial dengan menyertakan kredit yang sesuai.
+                        </p>
+                    </div>
+                </section>
+            `;
+            
+            // Set today's date as default
+            document.getElementById('messageDate').valueAsDate = new Date();
+        }
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('studentName').value;
+            const date = document.getElementById('messageDate').value;
+            const message = document.getElementById('message').value;
+            
+            // TODO: Ganti dengan nomor WhatsApp Ms. Eka yang sebenarnya
+            const phoneNumber = "6281234567890"; // Nomor placeholder
+            
+            const whatsappMessage = `Halo Bu Eka, saya ${name} (${date}). ${message}`;
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+            
+            window.open(whatsappURL, '_blank');
+            showToast('Membuka WhatsApp...', 'info');
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            router();
+            
+            // Theme toggle
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+            
+            // Mobile drawer
+            document.getElementById('menuToggle').addEventListener('click', () => {
+                document.getElementById('mobileDrawer').classList.remove('-translate-x-full');
+            });
+            
+            document.getElementById('closeDrawer').addEventListener('click', () => {
+                document.getElementById('mobileDrawer').classList.add('-translate-x-full');
+            });
+            
+            // Router
+            window.addEventListener('hashchange', router);
+            
+            // Close drawer on link click
+            document.querySelectorAll('#mobileDrawer a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('mobileDrawer').classList.add('-translate-x-full');
+                });
+            });
+            
+            // Close modal on outside click
+            document.getElementById('materialModal').addEventListener('click', (e) => {
+                if (e.target === e.currentTarget) {
+                    closeMaterialModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
