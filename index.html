@@ -40,15 +40,6 @@
             transform: skewY(-2deg);
         }
 
-        .tilt-card {
-            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
-            transition: all 0.3s ease;
-        }
-
-        .tilt-card:hover {
-            transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.05);
-        }
-
         .zigzag-left {
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         }
@@ -154,8 +145,7 @@
 
 <body class="bg-gray-50 font-space">
     <!-- Unique Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 floating-nav"
-        :class="scrolled ? 'morphism shadow-lg' : 'bg-transparent'">
+    <nav class="fixed top-0 left-0 right-0 z-50 floating-nav" :class="scrolled ? 'morphism shadow-lg ' : 'bg-white'">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-4">
@@ -284,49 +274,58 @@
                     </div>
                 </div>
 
-                <!-- Right Content - Floating Cards -->
+                <!-- Right Content - Square Cards in Zigzag Layout -->
                 <div class="relative">
                     <div class="absolute top-20 right-0 w-64 h-64 bg-secondary/20 rounded-full blur-3xl animate-pulse">
                     </div>
-                    <div class="relative space-y-6">
-                        <div class="tilt-card bg-white/10 morphism p-6 rounded-3xl backdrop-blur-lg">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
-                                    <i class="fas fa-infinity text-white"></i>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
+                        <!-- Card 1 - Left aligned -->
+                        <div class="bg-white/10 morphism p-6 rounded-2xl backdrop-blur-lg 
+                                    text-center lg:text-left w-full lg:w-80">
+                            <div class="flex flex-col items-center lg:items-start space-y-4">
+                                <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-infinity text-white text-2xl"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-white font-semibold">Terpadu</h3>
+                                    <h3 class="text-white font-semibold text-xl">Terpadu</h3>
                                     <p class="text-gray-300 text-sm">Integrasi sumber belajar</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="tilt-card bg-white/10 morphism p-6 rounded-3xl backdrop-blur-lg ml-12">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center">
-                                    <i class="fas fa-lightbulb text-primary"></i>
+                        <!-- Card 2 - Right aligned on desktop -->
+                        <div class="bg-white/10 morphism p-6 rounded-2xl backdrop-blur-lg 
+                                    text-center lg:text-right lg:ml-auto w-full lg:w-80">
+                            <div class="flex flex-col items-center lg:items-end space-y-4">
+                                <div class="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-lightbulb text-primary text-2xl"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-white font-semibold">Inovatif</h3>
+                                    <h3 class="text-white font-semibold text-xl">Inovatif</h3>
                                     <p class="text-gray-300 text-sm">Metode pembelajaran modern</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="tilt-card bg-white/10 morphism p-6 rounded-3xl backdrop-blur-lg">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
-                                    <i class="fas fa-chart-line text-white"></i>
+                        <!-- Card 3 - Left aligned -->
+                        <div class="bg-white/10 morphism p-6 rounded-2xl backdrop-blur-lg 
+                                    text-center lg:text-left w-full lg:w-80">
+                            <div class="flex flex-col items-center lg:items-start space-y-4">
+                                <div class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-white text-2xl"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-white font-semibold">Interaktif</h3>
+                                    <h3 class="text-white font-semibold text-xl">Interaktif</h3>
                                     <p class="text-gray-300 text-sm">Visualisasi dinamis</p>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
         <!-- Scroll Indicator -->
