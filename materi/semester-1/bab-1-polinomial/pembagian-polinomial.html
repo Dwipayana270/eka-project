@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembagian Polinomial - Bab 1 - Eka Project</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../../index.html">Beranda</a></li>
+                <li><a href="../../../semua-materi.html">Semua Materi</a></li>
+                <li><a href="../../../materi.html">Materi</a></li>
+                <li><a href="../../../services.html">Layanan</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Bab 1: Polinomial</h1>
+            <h2>Pembagian Polinomial</h2>
+            <p>Metode pembagian polinomial dan penerapannya</p>
+        </section>
+
+        <section class="materi-detail">
+            <div class="materi-content">
+                <div class="breadcrumb">
+                    <a href="../../../semua-materi.html">Semua Materi</a> > 
+                    <a href="../semester-1.html">Semester 1</a> > 
+                    <a href="index.html">Bab 1: Polinomial</a> > 
+                    Pembagian Polinomial
+                </div>
+                
+                <div class="materi-body">
+                    <h3>Konsep Pembagian Polinomial</h3>
+                    <p>Pembagian polinomial adalah proses membagi suatu polinomial (dividen) dengan polinomial lain (divisor) untuk mendapatkan hasil bagi (quotient) dan sisa (remainder).</p>
+
+                    <p><strong>Teorema Dasar:</strong> Jika P(x) dibagi oleh (x - k), maka:</p>
+                    <p>P(x) = (x - k) × Q(x) + R</p>
+                    <p>Dimana Q(x) adalah hasil bagi dan R adalah sisa pembagian.</p>
+
+                    <h3>Metode Pembagian Polinomial</h3>
+
+                    <h4>1. Pembagian Biasa (Long Division)</h4>
+                    <p>Metode yang mirip dengan pembagian bilangan, dilakukan langkah demi langkah.</p>
+                    
+                    <p><strong>Contoh:</strong> Bagi P(x) = 2x³ + 3x² - 5x + 2 dengan (x - 1)</p>
+                    <p><strong>Langkah 1:</strong> Bagi suku pertama: 2x³ ÷ x = 2x²</p>
+                    <p><strong>Langkah 2:</strong> Kalikan: 2x² × (x - 1) = 2x³ - 2x²</p>
+                    <p><strong>Langkah 3:</strong> Kurangkan: (2x³ + 3x²) - (2x³ - 2x²) = 5x²</p>
+                    <p><strong>Langkah 4:</strong> Turunkan suku berikutnya: 5x² - 5x</p>
+                    <p><strong>Langkah 5:</strong> Bagi: 5x² ÷ x = 5x</p>
+                    <p><strong>Langkah 6:</strong> Kalikan: 5x × (x - 1) = 5x² - 5x</p>
+                    <p><strong>Langkah 7:</strong> Kurangkan: (5x² - 5x) - (5x² - 5x) = 0</p>
+                    <p><strong>Langkah 8:</strong> Turunkan konstanta: 0 + 2 = 2</p>
+                    <p><strong>Langkah 9:</strong> Bagi: 2 ÷ x = 0 (sisa)</p>
+
+                    <p><strong>Hasil:</strong> 2x² + 5x + 0 dengan sisa 2</p>
+
+                    <h4>2. Metode Horner</h4>
+                    <p>Metode yang lebih efisien untuk pembagian dengan bentuk (x - k).</p>
+
+                    <p><strong>Langkah-langkah:</strong></p>
+                    <ol>
+                        <li>Tulis koefisien polinomial berurutan</li>
+                        <li>Tulis nilai k di sebelah kiri</li>
+                        <li>Turunkan koefisien pertama</li>
+                        <li>Kalikan dengan k, tambahkan ke koefisien berikutnya</li>
+                        <li>Ulangi sampai selesai</li>
+                        <li>Angka terakhir adalah sisa</li>
+                    </ol>
+
+                    <p><strong>Contoh:</strong> Bagi P(x) = 2x³ + 3x² - 5x + 2 dengan (x - 1)</p>
+                    <p>k = 1</p>
+                    <p>Koefisien: 2, 3, -5, 2</p>
+
+                    <table class="horner-table">
+                        <tr>
+                            <th></th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>-5</th>
+                            <th>2</th>
+                        </tr>
+                        <tr>
+                            <td>k=1</td>
+                            <td></td>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>0</td>
+                            <td><strong>2</strong></td>
+                        </tr>
+                    </table>
+
+                    <p><strong>Hasil:</strong> 2x² + 5x + 0 dengan sisa 2</p>
+
+                    <h4>3. Metode Sintetik (Synthetic Division)</h4>
+                    <p>Metode yang mirip dengan Horner, digunakan untuk pembagian dengan bentuk linear.</p>
+
+                    <h3>Teorema Sisa</h3>
+                    <p>Jika polinomial P(x) dibagi oleh (x - k), maka sisa pembagiannya adalah P(k).</p>
+
+                    <p><strong>Contoh:</strong> Tentukan sisa pembagian P(x) = x³ - 2x² + 3x - 1 oleh (x - 2)</p>
+                    <p>P(2) = (2)³ - 2(2)² + 3(2) - 1 = 8 - 8 + 6 - 1 = 5</p>
+                    <p>Jadi, sisa pembagian adalah 5</p>
+
+                    <h3>Teorema Faktor</h3>
+                    <p>Jika P(k) = 0, maka (x - k) adalah faktor dari P(x).</p>
+
+                    <p><strong>Contoh:</strong> Tunjukkan bahwa (x - 1) adalah faktor dari P(x) = x³ - 3x² + 2x</p>
+                    <p>P(1) = (1)³ - 3(1)² + 2(1) = 1 - 3 + 2 = 0</p>
+                    <p>Karena P(1) = 0, maka (x - 1) adalah faktor dari P(x)</p>
+
+                    <h3>Latihan Soal</h3>
+                    <p><strong>1.</strong> Bagi P(x) = 3x³ - 2x² + x - 4 dengan (x - 2) menggunakan metode Horner</p>
+                    <p><strong>2.</strong> Tentukan sisa pembagian P(x) = x⁴ - 3x² + 2x - 1 oleh (x + 1)</p>
+                    <p><strong>3.</strong> Buktikan bahwa (x - 3) adalah faktor dari P(x) = x³ - 6x² + 11x - 6</p>
+                    <p><strong>4.</strong> Bagi P(x) = 2x⁴ - 3x³ + x² - 5x + 2 dengan (x² - x - 1) menggunakan pembagian biasa</p>
+                </div>
+                
+                <div class="materi-actions">
+                    <a href="polinomial-dan-fungsi.html" class="btn">Materi Sebelumnya</a>
+                    <a href="faktor-pembuat-nol.html" class="btn">Materi Selanjutnya</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Eka Project. Semua hak dilindungi.</p>
+    </footer>
+
+    <script src="../../../js/app.js"></script>
+    <style>
+        .horner-table {
+            border-collapse: collapse;
+            margin: 1rem 0;
+            width: 100%;
+            max-width: 400px;
+        }
+        .horner-table th, .horner-table td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        .horner-table th {
+            background-color: #f8f9fa;
+        }
+    </style>
+</body>
+</html>

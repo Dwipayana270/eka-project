@@ -4,359 +4,449 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INTEGRAL - Inovasi Terpadu untuk Edukasi Matematika Digital</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-        
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
-        }
-        
-        .floating-logo {
-            animation: float 4s ease-in-out infinite;
-        }
-        
-        .hero-bg {
-            background-image: url('https://wallpapercat.com/w/full/7/3/a/1324359-2431x2055-desktop-hd-math-background-image.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-        
-        .math-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-    </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-effect">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-4">
-                    <img src="https://iili.io/FmJ88LQ.png" alt="Logo INTEGRAL" class="h-12 w-auto">
-                    <span class="text-white font-bold text-xl">INTEGRAL</span>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="https://iili.io/FmJ88LQ.png" alt="Logo INTEGRAL" class="logo-img">
+                    <span class="logo-text">INTEGRAL</span>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#materi" class="text-white hover:text-blue-300 transition duration-300">Materi</a>
-                    <a href="#media" class="text-white hover:text-blue-300 transition duration-300">Media Interaktif</a>
-                    <a href="#latihan" class="text-white hover:text-blue-300 transition duration-300">Latihan Soal</a>
+                
+                <div class="nav-menu">
+                    <a href="#beranda" class="nav-link active">Beranda</a>
+                    <div class="nav-dropdown">
+                        <a href="#materi" class="nav-link">Materi</a>
+                        <div class="dropdown-content">
+                            <a href="materi/semester-1/bab-1-polinomial/polinomial-dan-fungsi.html">Bab 1: Polinomial</a>
+                            <a href="materi/semester-1/bab-2-matriks/konsep-jenis-matriks.html">Bab 2: Matriks</a>
+                            <a href="materi/semester-1/bab-3-transformasi/translasi.html">Bab 3: Transformasi</a>
+                        </div>
+                    </div>
+                    <a href="#tentang" class="nav-link">Tentang</a>
+                    <a href="#kontak" class="nav-link">Kontak</a>
                 </div>
-                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars text-2xl"></i>
+
+                <div class="nav-search">
+                    <div class="search-container">
+                        <input type="text" placeholder="Cari materi..." class="search-input">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden glass-effect">
-            <div class="px-6 py-4 space-y-3">
-                <a href="#materi" class="block text-white hover:text-blue-300">Materi</a>
-                <a href="#media" class="block text-white hover:text-blue-300">Media Interaktif</a>
-                <a href="#latihan" class="block text-white hover:text-blue-300">Latihan Soal</a>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="hero-bg min-h-screen flex items-center justify-center relative math-pattern">
-        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/70 to-purple-900/70"></div>
-        
-        <!-- Floating Math Icons -->
-        <div class="absolute top-20 left-10 floating-logo">
-            <img src="https://static.thenounproject.com/png/maths-icon-7108133-512.png" alt="Math Icon" class="w-16 h-16 opacity-80">
-        </div>
-        <div class="absolute top-40 right-20 floating-logo" style="animation-delay: 1s;">
-            <img src="https://static.thenounproject.com/png/maths-icon-7108133-512.png" alt="Math Icon" class="w-12 h-12 opacity-60">
-        </div>
-        <div class="absolute bottom-40 left-20 floating-logo" style="animation-delay: 2s;">
-            <img src="https://static.thenounproject.com/png/maths-icon-7108133-512.png" alt="Math Icon" class="w-14 h-14 opacity-70">
-        </div>
-        
-        <div class="relative z-10 text-center px-6">
-            <img src="https://iili.io/FmJ88LQ.png" alt="Logo INTEGRAL" class="mx-auto mb-8 w-32 h-auto animate-pulse">
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
-                INTEGRAL
-            </h1>
-            <p class="text-2xl md:text-3xl text-blue-200 mb-8 tracking-wider">
-                SISTEM LABORATORIUM TERINTEGRASI
-            </p>
-            <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-12">
-                Inovasi Terpadu untuk Edukasi Matematika Digital
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <button onclick="scrollToSection('materi')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
-                    <i class="fas fa-book mr-2"></i>Mulai Belajar
-                </button>
-                <button onclick="scrollToSection('media')" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
-                    <i class="fas fa-play-circle mr-2"></i>Eksplorasi Interaktif
-                </button>
+    <section id="beranda" class="hero">
+        <div class="hero-slider">
+            <div class="slide active">
+                <div class="slide-content">
+                    <div class="logo-animation">
+                        <img src="https://iili.io/FmJ88LQ.png" alt="INTEGRAL Logo" class="hero-logo">
+                        <div class="math-symbols">
+                            <i class="fas fa-plus"></i>
+                            <i class="fas fa-minus"></i>
+                            <i class="fas fa-times"></i>
+                            <i class="fas fa-divide"></i>
+                        </div>
+                    </div>
+                    
+                    <h1 class="hero-title">INTEGRAL</h1>
+                    <h2 class="hero-subtitle">Inovasi Terpadu untuk Edukasi Matematika Digital</h2>
+                    
+                    <p class="hero-description">
+                        INTEGRAL adalah sebuah konsep pembelajaran matematika digital yang dirancang untuk menghadirkan pengalaman belajar yang terpadu, inovatif, dan interaktif. Melalui INTEGRAL, siswa tidak hanya diajak memahami materi secara teoritis, tetapi juga dilatih untuk menalar, memecahkan masalah, dan menerapkan konsep matematika dalam kehidupan nyata.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <button class="btn-primary" onclick="scrollToSection('materi')">
+                            <i class="fas fa-book"></i> Mulai Belajar
+                        </button>
+                        <button class="btn-secondary" onclick="scrollToSection('fitur')">
+                            <i class="fas fa-play-circle"></i> Lihat Demo
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-white text-3xl"></i>
+        <div class="hero-scroll">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
     <!-- Materi Section -->
-    <section id="materi" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Materi Pembelajaran</h2>
-                <p class="text-xl text-gray-600">Pilih materi matematika yang ingin dipelajari</p>
+    <section id="materi" class="materi-section">
+        <div class="container">
+            <h2 class="section-title">Materi Pembelajaran</h2>
+            <p class="section-subtitle">Pilih bab materi yang ingin dipelajari</p>
+
+            <div class="bab-navigation">
+                <button class="bab-tab active" data-bab="bab1">Bab 1: Polinomial</button>
+                <button class="bab-tab" data-bab="bab2">Bab 2: Matriks</button>
+                <button class="bab-tab" data-bab="bab3">Bab 3: Transformasi</button>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 text-center">
-                    <div class="bg-blue-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-calculator text-white text-3xl"></i>
+
+            <!-- Bab 1: Polinomial -->
+            <div class="bab-content active" id="bab1-content">
+                <div class="materi-grid">
+                    <div class="materi-card">
+                        <div class="card-header">
+                            <i class="fas fa-function"></i>
+                            <h3>Polinomial dan Fungsi Polinomial</h3>
+                        </div>
+                        <p>Memahami konsep dasar polinomial, fungsi polinomial, dan operasi dasarnya.</p>
+                        <a href="materi/semester-1/bab-1-polinomial/polinomial-dan-fungsi.html" class="card-link">
+                            Pelajari Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Aljabar</h3>
-                    <p class="text-gray-600 mb-6">Pelajari konsep aljabar dasar hingga lanjutan dengan contoh interaktif</p>
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
-                        Mulai Belajar
-                    </button>
+
+                    <div class="materi-card">
+                        <div class="card-header">
+                            <i class="fas fa-divide"></i>
+                            <h3>Pembagian Polinomial</h3>
+                        </div>
+                        <p>Metode pembagian polinomial termasuk metode Horner dan pembagian sintetik.</p>
+                        <a href="materi/semester-1/bab-1-polinomial/pembagian-polinomial.html" class="card-link">
+                            Pelajari Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="materi-card">
+                        <div class="card-header">
+                            <i class="fas fa-square-root-alt"></i>
+                            <h3>Faktor dan Pembuat Nol</h3>
+                        </div>
+                        <p>Konsep faktor polinomial, teorema faktor, dan identitas polinomial.</p>
+                        <a href="materi/semester-1/bab-1-polinomial/faktor-pembuat-nol.html" class="card-link">
+                            Pelajari Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
-                
-                <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 text-center">
-                    <div class="bg-green-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-shapes text-white text-3xl"></i>
+            </div>
+
+            <!-- Bab 2: Matriks -->
+            <div class="bab-content" id="bab2-content">
+                <div class="materi-grid">
+                    <div class="materi-card">
+                        <div class="card-header">
+                            <i class="fas fa-table"></i>
+                            <h3>Konsep dan Jenis Matriks</h3>
+                        </div>
+                        <p>Pengertian matriks, jenis-jenis matriks, transpos, dan kesamaan matriks.</p>
+                        <a href="materi/semester-1/bab-2-matriks/konsep-jenis-matriks.html" class="card-link">
+                            Pelajari Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Geometri</h3>
-                    <p class="text-gray-600 mb-6">Jelajahi dunia geometri dengan visualisasi 2D dan 3D yang menarik</p>
-                    <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
-                        Mulai Belajar
-                    </button>
+
+                    <div class="materi-card">
+                        <div class="card-header">
+                            <i class="fas fa-calculator"></i>
+                            <h3>Operasi Aljabar Matriks</h3>
+                        </div>
+                        <p>Penjumlahan, pengurangan, perkalian matriks, dan sifat-sifat operasi.</p>
+                        <a href="materi/semester-1/bab-2-matriks/operasi-aljabar.html" class="card-link">
+                            Pelajari Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="materi-card">
+                        <div class="card-header">
+                            <i class="fas fa-determinant"></i>
+                            <h3>Determinan Matriks</h3>
+                        </div>
+                        <p>Konsep determinan, metode perhitungan, dan aplikasi determinan.</p>
+                        <a href="materi/semester-1/bab-2-matriks/determinan.html" class="card-link">
+                            Pelajari Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="materi-card">
+                        <div class="card-header">
+                            <i class="fas fa-exchange-alt"></i>
+                            <h3>Invers Matriks</h3>
+                        </div>
+                        <p>Konsep invers matriks, metode perhitungan, dan aplikasi invers.</p>
+                        <a href="materi/semester-1/bab-2-matriks/invers-matriks.html" class="card-link">
+                            Pelajari Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
-                
-                <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-8 text-center">
-                    <div class="bg-purple-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-chart-line text-white text-3xl"></i>
+            </div>
+
+            <!-- Bab 3: Transformasi -->
+            <div class="bab-content" id="bab3-content">
+                <div class="materi-grid">
+                    <div class="materi-card">
+                        <div class="card-header">
+                            <i class="fas fa-arrows-alt"></i>
+                            <h3>Translasi (Pergeseran)</h3>
+                        </div>
+                        <p>Konsep pergeseran titik dan bangun geometri dengan vektor translasi.</p>
+                        <a href="materi/semester-1/bab-3-transformasi/translasi.html" class="card-link">
+                            Pelajari Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Kalkulus</h3>
-                    <p class="text-gray-600 mb-6">Pahami konsep turunan dan integral dengan pendekatan visual</p>
-                    <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
-                        Mulai Belajar
-                    </button>
+
+                    <div class="materi-card">
+                        <div class="card-header">
+                            <i class="fas fa-mirror"></i>
+                            <h3>Refleksi (Pencerminan)</h3>
+                        </div>
+                        <p>Pencerminan terhadap berbagai sumbu dan garis dalam bidang koordinat.</p>
+                        <a href="materi/semester-1/bab-3-transformasi/refleksi.html" class="card-link">
+                            Pelajari Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="materi-card">
+                        <div class="card-header">
+                            <i class="fas fa-sync-alt"></i>
+                            <h3>Rotasi (Perputaran)</h3>
+                        </div>
+                        <p>Perputaran titik dan bangun dengan berbagai sudut dan pusat rotasi.</p>
+                        <a href="materi/semester-1/bab-3-transformasi/rotasi.html" class="card-link">
+                            Pelajari Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="materi-card">
+                        <div class="card-header">
+                            <i class="fas fa-expand-alt"></i>
+                            <h3>Dilatasi</h3>
+                        </div>
+                        <p>Pembesaran dan pengecilan bangun geometri dengan faktor skala.</p>
+                        <a href="materi/semester-1/bab-3-transformasi/dilatasi.html" class="card-link">
+                            Pelajari Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="materi-card">
+                        <div class="card-header">
+                            <i class="fas fa-layer-group"></i>
+                            <h3>Komposisi Transformasi</h3>
+                        </div>
+                        <p>Penggabungan berbagai transformasi geometri secara berurutan.</p>
+                        <a href="materi/semester-1/bab-3-transformasi/komposisi-transformasi.html" class="card-link">
+                            Pelajari Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Media Interaktif Section -->
-    <section id="media" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Media Interaktif dengan GeoGebra</h2>
-                <p class="text-xl text-gray-600">Eksplorasi konsep matematika secara visual dan interaktif</p>
-            </div>
-            
-            <div class="bg-white rounded-2xl shadow-xl p-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Laboratorium Virtual Matematika</h3>
-                        <p class="text-gray-600 mb-6">
-                            Gunakan GeoGebra untuk memvisualisasikan konsep matematika secara real-time. 
-                            Manipulasi grafik, geometri, dan aljabar dengan mudah.
-                        </p>
-                        <div class="space-y-4">
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
-                                <span class="text-gray-700">Grafik Fungsi Interaktif</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
-                                <span class="text-gray-700">Konstruksi Geometri Dinamis</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
-                                <span class="text-gray-700">Kalkulator 3D</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
-                                <span class="text-gray-700">Simulasi Matematika</span>
-                            </div>
-                        </div>
-                        <button class="mt-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
-                            <i class="fas fa-external-link-alt mr-2"></i>Buka GeoGebra
-                        </button>
+    <!-- Fitur Section -->
+    <section id="fitur" class="fitur-section">
+        <div class="container">
+            <h2 class="section-title">Fitur Unggulan</h2>
+            <p class="section-subtitle">Nikmati pengalaman belajar matematika yang berbeda</p>
+
+            <div class="fitur-grid">
+                <div class="fitur-card">
+                    <div class="fitur-icon">
+                        <i class="fas fa-desktop"></i>
                     </div>
-                    <div class="bg-gray-200 rounded-xl h-96 flex items-center justify-center">
-                        <div class="text-center">
-                            <i class="fas fa-desktop text-6xl text-gray-400 mb-4"></i>
-                            <p class="text-gray-500">Preview GeoGebra akan muncul di sini</p>
-                        </div>
+                    <h3>Simulasi Interaktif</h3>
+                    <p>Visualisasi konsep matematika dengan simulasi interaktif yang mudah dipahami</p>
+                </div>
+
+                <div class="fitur-card">
+                    <div class="fitur-icon">
+                        <i class="fas fa-video"></i>
                     </div>
+                    <h3>Video Pembelajaran</h3>
+                    <p>Video penjelasan lengkap untuk setiap topik dengan contoh penyelesaian</p>
+                </div>
+
+                <div class="fitur-card">
+                    <div class="fitur-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Aplikasi Praktis</h3>
+                    <p>Penerapan konsep matematika dalam kehidupan sehari-hari dan teknologi</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Latihan Soal Section -->
-    <section id="latihan" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Latihan Soal</h2>
-                <p class="text-xl text-gray-600">Uji pemahamanmu dengan berbagai tingkat kesulitan</p>
-            </div>
+    <!-- About Section -->
+    <section id="tentang" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Tentang INTEGRAL</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-6 card-hover">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold text-gray-800">Level Dasar</h3>
-                        <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm">Mudah</span>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Platform Pembelajaran Matematika Digital</h3>
+                    <p>INTEGRAL hadir sebagai solusi inovatif untuk memudahkan pembelajaran matematika dengan pendekatan digital yang terpadu dan interaktif.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Bab Materi</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Topik Lengkap</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Contoh Soal</span>
+                        </div>
                     </div>
-                    <p class="text-gray-600 mb-4">20 soal pilihan ganda</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-sm text-gray-500"><i class="fas fa-clock mr-1"></i>30 menit</span>
-                        <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
-                            Mulai
-                        </button>
+
+                    <div class="progress-section">
+                        <h4>Metode Pembelajaran Terpadu</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%">
+                                <span>85% Interaktif</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%">
+                                <span>90% Visual</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%">
+                                <span>95% Praktis</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 card-hover">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold text-gray-800">Level Menengah</h3>
-                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Sedang</span>
-                    </div>
-                    <p class="text-gray-600 mb-4">15 soal uraian</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-sm text-gray-500"><i class="fas fa-clock mr-1"></i>45 menit</span>
-                        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
-                            Mulai
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 card-hover">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold text-gray-800">Level Lanjut</h3>
-                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm">Sulit</span>
-                    </div>
-                    <p class="text-gray-600 mb-4">10 soal analisis</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-sm text-gray-500"><i class="fas fa-clock mr-1"></i>60 menit</span>
-                        <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
-                            Mulai
-                        </button>
-                    </div>
+
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Pembelajaran Matematika">
                 </div>
             </div>
-            
-            <div class="mt-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 text-white text-center">
-                <h3 class="text-2xl font-bold mb-4">Riwayat Latihan</h3>
-                <p class="mb-6">Lihat progress dan hasil latihan kamu sebelumnya</p>
-                <button class="bg-white text-purple-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
-                    <i class="fas fa-history mr-2"></i>Lihat Riwayat
-                </button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <p class="section-subtitle">Ada pertanyaan tentang INTEGRAL? Silakan hubungi kami</p>
+
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Nama Lengkap" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subjek" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Pesan" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i> Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Jl. Pendidikan No. 123, Jakarta</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>(021) 1234-5678</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@integral.edu</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-container">
+                        <div class="map-overlay">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <p>Lihat lokasi kami di peta</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <img src="https://iili.io/FmJ88LQ.png" alt="Logo" class="h-10 w-auto">
-                        <span class="font-bold text-xl">INTEGRAL</span>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://iili.io/FmJ88LQ.png" alt="INTEGRAL Logo">
+                        <span>INTEGRAL</span>
                     </div>
-                    <p class="text-gray-400">Inovasi Terpadu untuk Edukasi Matematika Digital</p>
+                    <p>Inovasi Terpadu untuk Edukasi Matematika Digital</p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#materi" class="hover:text-white transition">Materi</a></li>
-                        <li><a href="#media" class="hover:text-white transition">Media Interaktif</a></li>
-                        <li><a href="#latihan" class="hover:text-white transition">Latihan Soal</a></li>
+
+                <div class="footer-section">
+                    <h4>Sumber Belajar</h4>
+                    <ul>
+                        <li><a href="#">Kumpulan Soal</a></li>
+                        <li><a href="#">Video Tutorial</a></li>
+                        <li><a href="#">Simulasi Interaktif</a></li>
+                        <li><a href="#">Modul Pembelajaran</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Kontak</h4>
-                    <div class="space-y-2 text-gray-400">
-                        <p><i class="fas fa-envelope mr-2"></i>info@integral.edu</p>
-                        <p><i class="fas fa-phone mr-2"></i>(021) 1234-5678</p>
-                        <div class="flex space-x-4 mt-4">
-                            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook text-xl"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
-                            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
-                        </div>
+
+                <div class="footer-section">
+                    <h4>Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#materi">Materi</a></li>
+                        <li><a href="#tentang">Tentang</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Media Sosial</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Email untuk newsletter">
+                        <button>Subscribe</button>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 INTEGRAL. All rights reserved.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 INTEGRAL. All rights reserved. | Designed with ❤️ for better mathematics education</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Smooth scroll to section
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-lg');
-            } else {
-                nav.classList.remove('shadow-lg');
-            }
-        });
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards
-        document.querySelectorAll('.card-hover').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.6s ease-out';
-            observer.observe(card);
-        });
-    </script>
+    <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translasi - Bab 3 - Eka Project</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../../index.html">Beranda</a></li>
+                <li><a href="../../../semua-materi.html">Semua Materi</a></li>
+                <li><a href="../../../materi.html">Materi</a></li>
+                <li><a href="../../../services.html">Layanan</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Bab 3: Transformasi Geometri</h1>
+            <h2>Translasi (Pergeseran)</h2>
+            <p>Memahami konsep pergeseran titik dan bangun geometri</p>
+        </section>
+
+        <section class="materi-detail">
+            <div class="materi-content">
+                <div class="breadcrumb">
+                    <a href="../../../semua-materi.html">Semua Materi</a> > 
+                    <a href="../semester-1.html">Semester 1</a> > 
+                    <a href="index.html">Bab 3: Transformasi</a> > 
+                    Translasi
+                </div>
+                
+                <div class="materi-body">
+                    <h3>Pengertian Translasi</h3>
+                    <p>Translasi (pergeseran) adalah transformasi yang memindahkan setiap titik pada bidang dengan jarak dan arah tertentu. Translasi tidak mengubah bentuk dan ukuran benda, hanya mengubah posisinya.</p>
+
+                    <h3>Notasi Translasi</h3>
+                    <p>Translasi dinyatakan dengan vektor translasi T = \begin{bmatrix} a \\ b \end{bmatrix}, dimana:</p>
+                    <ul>
+                        <li>a = pergeseran horizontal (sumbu x)</li>
+                        <li>b = pergeseran vertikal (sumbu y)</li>
+                    </ul>
+
+                    <h3>Rumus Translasi</h3>
+                    <p>Jika titik P(x, y) ditranslasikan oleh T = \begin{bmatrix} a \\ b \end{bmatrix}, maka bayangannya adalah:</p>
+                    <p>P'(x', y') = (x + a, y + b)</p>
+
+                    <p><strong>Dalam bentuk matriks:</strong></p>
+                    <p>\begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} a \\ b \end{bmatrix}</p>
+
+                    <h3>Contoh Translasi</h3>
+                    <p><strong>Contoh 1:</strong> Titik A(2, 3) ditranslasikan oleh T = \begin{bmatrix} 4 \\ -1 \end{bmatrix}</p>
+                    <p>A'(x', y') = (2 + 4, 3 + (-1)) = (6, 2)</p>
+
+                    <p><strong>Contoh 2:</strong> Titik B(-1, 5) ditranslasikan oleh T = \begin{bmatrix} -3 \\ 2 \end{bmatrix}</p>
+                    <p>B'(x', y') = (-1 + (-3), 5 + 2) = (-4, 7)</p>
+
+                    <h3>Translasi Bangun Geometri</h3>
+                    <p>Untuk mentranslasikan bangun geometri, setiap titik sudut bangun tersebut ditranslasikan dengan vektor translasi yang sama.</p>
+
+                    <p><strong>Contoh:</strong> Segitiga dengan titik A(1,2), B(3,4), C(2,6) ditranslasikan oleh T = \begin{bmatrix} 2 \\ -3 \end{bmatrix}</p>
+                    <p>A' = (1+2, 2-3) = (3, -1)</p>
+                    <p>B' = (3+2, 4-3) = (5, 1)</p>
+                    <p>C' = (2+2, 6-3) = (4, 3)</p>
+
+                    <h3>Sifat-Sifat Translasi</h3>
+                    <ol>
+                        <li>Bentuk dan ukuran benda tetap</li>
+                        <li>Orientasi benda tetap</li>
+                        <li>Jarak antara dua titik tetap</li>
+                        <li>Translasi bersifat komutatif: T₁ + T₂ = T₂ + T₁</li>
+                        <li>Translasi memiliki unsur identitas: T + O = T</li>
+                        <li>Setiap translasi memiliki invers</li>
+                    </ol>
+
+                    <h3>Komposisi Translasi</h3>
+                    <p>Dua translasi atau lebih dapat dikomposisikan (digabungkan).</p>
+                    <p>Jika T₁ = \begin{bmatrix} a₁ \\ b₁ \end{bmatrix} dan T₂ = \begin{bmatrix} a₂ \\ b₂ \end{bmatrix}, maka:</p>
+                    <p>T₁ + T₂ = \begin{bmatrix} a₁ + a₂ \\ b₁ + b₂ \end{bmatrix}</p>
+
+                    <p><strong>Contoh:</strong></p>
+                    <p>T₁ = \begin{bmatrix} 2 \\ 3 \end{bmatrix}, T₂ = \begin{bmatrix} -1 \\ 4 \end{bmatrix}</p>
+                    <p>T₁ + T₂ = \begin{bmatrix} 2 + (-1) \\ 3 + 4 \end{bmatrix} = \begin{bmatrix} 1 \\ 7 \end{bmatrix}</p>
+
+                    <h3>Invers Translasi</h3>
+                    <p>Invers dari translasi T = \begin{bmatrix} a \\ b \end{bmatrix} adalah -T = \begin{bmatrix} -a \\ -b \end{bmatrix}</p>
+
+                    <h3>Aplikasi Translasi</h3>
+                    <ol>
+                        <li><strong>Computer Graphics:</strong> Memindahkan objek dalam desain grafis</li>
+                        <li><strong>Game Development:</strong> Menggerakkan karakter dalam game</li>
+                        <li><strong>Animasi:</strong> Membuat pergerakan objek</li>
+                        <li><strong>Geometri Analitik:</strong> Menyederhanakan persamaan kurva</li>
+                    </ol>
+
+                    <h3>Translasi dalam Sistem Koordinat</h3>
+                    <p>Translasi dapat digunakan untuk menggeser sistem koordinat, yang berguna dalam menyederhanakan persamaan matematika.</p>
+
+                    <h3>Latihan Soal</h3>
+                    <p><strong>1.</strong> Tentukan bayangan titik P(3, -2) yang ditranslasikan oleh T = \begin{bmatrix} -4 \\ 5 \end{bmatrix}</p>
+                    <p><strong>2.</strong> Tentukan vektor translasi yang memetakan titik A(1, 3) ke A'(4, -1)</p>
+                    <p><strong>3.</strong> Segi empat dengan titik A(0,0), B(4,0), C(4,3), D(0,3) ditranslasikan oleh T = \begin{bmatrix} 2 \\ -1 \end{bmatrix}. Tentukan koordinat bayangannya.</p>
+                    <p><strong>4.</strong> Jika T₁ = \begin{bmatrix} 3 \\ -2 \end{bmatrix} dan T₂ = \begin{bmatrix} -1 \\ 4 \end{bmatrix}, hitung T₁ + T₂ dan T₂ + T₁</p>
+                    <p><strong>5.</strong> Tentukan invers dari translasi T = \begin{bmatrix} 5 \\ -3 \end{bmatrix}</p>
+                </div>
+                
+                <div class="materi-actions">
+                    <a href="../../../semua-materi.html" class="btn">Kembali ke Semua Materi</a>
+                    <a href="refleksi.html" class="btn">Materi Selanjutnya</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Eka Project. Semua hak dilindungi.</p>
+    </footer>
+
+    <script src="../../../js/app.js"></script>
+    <style>
+        .materi-body h4 {
+            color: #2c3e50;
+            margin: 1.5rem 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+        .materi-body p {
+            margin-bottom: 1rem;
+        }
+        .materi-body ol, .materi-body ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        .materi-body li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</body>
+</html>

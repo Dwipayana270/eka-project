@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komposisi Transformasi - Bab 3 - Eka Project</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../../index.html">Beranda</a></li>
+                <li><a href="../../../semua-materi.html">Semua Materi</a></li>
+                <li><a href="../../../materi.html">Materi</a></li>
+                <li><a href="../../../services.html">Layanan</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Bab 3: Transformasi Geometri</h1>
+            <h2>Komposisi Transformasi</h2>
+            <p>Memahami penggabungan berbagai transformasi geometri</p>
+        </section>
+
+        <section class="materi-detail">
+            <div class="materi-content">
+                <div class="breadcrumb">
+                    <a href="../../../semua-materi.html">Semua Materi</a> > 
+                    <a href="../semester-1.html">Semester 1</a> > 
+                    <a href="index.html">Bab 3: Transformasi</a> > 
+                    Komposisi Transformasi
+                </div>
+                
+                <div class="materi-body">
+                    <h3>Pengertian Komposisi Transformasi</h3>
+                    <p>Komposisi transformasi adalah penggabungan dua atau lebih transformasi geometri yang dilakukan secara berurutan. Hasil dari komposisi transformasi disebut transformasi komposit.</p>
+
+                    <h3>Notasi Komposisi</h3>
+                    <p>Jika T₁ dan T₂ adalah dua transformasi, maka komposisinya ditulis:</p>
+                    <p>T₂ ∘ T₁ (dibaca "T₂ komposisi T₁")</p>
+                    <p>Artinya: lakukan transformasi T₁ terlebih dahulu, kemudian T₂</p>
+
+                    <h3>Komposisi dengan Matriks</h3>
+                    <p>Jika transformasi dinyatakan dengan matriks, maka komposisi transformasi equivalent dengan perkalian matriks:</p>
+                    <p>Mₜₒₜₐₗ = M₂ × M₁</p>
+                    <p>Dimana M₁ adalah matriks transformasi pertama, M₂ adalah matriks transformasi kedua</p>
+
+                    <h3>Jenis-Jenis Komposisi Transformasi</h3>
+
+                    <h4>1. Komposisi Translasi</h4>
+                    <p>Dua translasi berurutan equivalent dengan satu translasi dengan vektor jumlah.</p>
+                    <p>T₁ = \begin{bmatrix} a₁ \\ b₁ \end{bmatrix}, T₂ = \begin{bmatrix} a₂ \\ b₂ \end{bmatrix}</p>
+                    <p>T₂ ∘ T₁ = \begin{bmatrix} a₁ + a₂ \\ b₁ + b₂ \end{bmatrix}</p>
+                    <p><strong>Sifat:</strong> Komutatif (T₁ + T₂ = T₂ + T₁)</p>
+
+                    <h4>2. Komposisi Rotasi dengan Pusat yang Sama</h4>
+                    <p>Dua rotasi berurutan dengan pusat yang sama equivalent dengan satu rotasi dengan sudut jumlah.</p>
+                    <p>R(θ₂) ∘ R(θ₁) = R(θ₁ + θ₂)</p>
+                    <p><strong>Sifat:</strong> Komutatif (θ₁ + θ₂ = θ₂ + θ₁)</p>
+
+                    <h4>3. Komposisi Refleksi</h4>
+                    <p><strong>a. Terhadap dua garis sejajar:</strong> Menghasilkan translasi</p>
+                    <p><strong>b. Terhadap dua garis berpotongan:</strong> Menghasilkan rotasi</p>
+
+                    <h4>4. Komposisi Dilatasi dengan Pusat yang Sama</h4>
+                    <p>Dua dilatasi berurutan dengan pusat yang sama equivalent dengan satu dilatasi dengan faktor skala hasil kali.</p>
+                    <p>D(k₂) ∘ D(k₁) = D(k₁ × k₂)</p>
+
+                    <h3>Komposisi Transformasi Campuran</h3>
+
+                    <h4>Contoh 1: Rotasi kemudian Translasi</h4>
+                    <p>P' = T ∘ R(P) = T(R(P))</p>
+                    <p>Matriks: Mₜₒₜₐₗ = Mₜ × Mᵣ</p>
+
+                    <h4>Contoh 2: Refleksi kemudian Dilatasi</h4>
+                    <p>P' = D ∘ Rf(P) = D(Rf(P))</p>
+                    <p>Matriks: Mₜₒₜₐₗ = M_d × M_ᵣf</p>
+
+                    <h3>Sifat-Sifat Komposisi Transformasi</h3>
+                    <ol>
+                        <li><strong>Asosiatif:</strong> (T₃ ∘ T₂) ∘ T₁ = T₃ ∘ (T₂ ∘ T₁)</li>
+                        <li><strong>Tidak selalu komutatif:</strong> T₂ ∘ T₁ ≠ T₁ ∘ T₂ (umumnya)</li>
+                        <li><strong>Identitas:</strong> T ∘ I = I ∘ T = T</li>
+                        <li><strong>Invers:</strong> (T₂ ∘ T₁)⁻¹ = T₁⁻¹ ∘ T₂⁻¹</li>
+                    </ol>
+
+                    <h3>Transformasi Komposit yang Penting</h3>
+
+                    <h4>1. Refleksi Geser (Glide Reflection)</h4>
+                    <p>Komposisi antara refleksi dan translasi sejajar sumbu refleksi.</p>
+                    <p>P' = T ∘ Rf(P) atau P' = Rf ∘ T(P)</p>
+
+                    <h4>2. Setengah Putaran</h4>
+                    <p>Rotasi 180° equivalent dengan dua refleksi terhadap garis yang berpotongan tegak lurus.</p>
+
+                    <h4>3. Translasi sebagai Komposisi Refleksi</h4>
+                    <p>Setiap translasi dapat dinyatakan sebagai komposisi dua refleksi terhadap garis sejajar.</p>
+
+                    <h3>Matriks Transformasi Komposit</h3>
+                    <p>Untuk transformasi linear (rotasi, refleksi, dilatasi dengan pusat O), matriks komposit diperoleh dengan mengalikan matriks-matriks transformasi secara berurutan.</p>
+
+                    <p><strong>Contoh:</strong> Rotasi 90° kemudian refleksi terhadap sumbu X</p>
+                    <p>M_ᵣₒₜ = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}</p>
+                    <p>M_ᵣₑfₗ = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}</p>
+                    <p>Mₜₒₜₐₗ = M_ᵣₑfₗ × M_ᵣₒₜ = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}</p>
+
+                    <h3>Langkah-Langkah Menyelesaikan Komposisi Transformasi</h3>
+                    <ol>
+                        <li>Identifikasi transformasi yang dikomposisikan</li>
+                        <li>Tentukan urutan transformasi</li>
+                        <li>Hitung matriks masing-masing transformasi</li>
+                        <li>Kalikan matriks sesuai urutan (dari kanan ke kiri)</li>
+                        <li>Aplikasikan pada titik yang ditransformasi</li>
+                    </ol>
+
+                    <h3>Aplikasi Komposisi Transformasi</h3>
+                    <ol>
+                        <li><strong>Computer Graphics:</strong> Animasi dan efek khusus</li>
+                        <li><strong>Game Development:</strong> Pergerakan karakter kompleks</li>
+                        <li><strong>Robotika:</strong> Perencanaan gerak robot</li>
+                        <li><strong>Geometri:</strong> Pembuktian teorema geometri</li>
+                        <li><strong>Kristalografi:</strong> Studi struktur kristal</li>
+                    </ol>
+
+                    <h3>Latihan Soal</h3>
+                    <p><strong>1.</strong> Tentukan bayangan titik A(2, 3) oleh transformasi: refleksi terhadap sumbu X kemudian translasi T = \begin{bmatrix} 3 \\ -2 \end{bmatrix}</p>
+                    <p><strong>2.</strong> Tentukan matriks komposit untuk rotasi 90° kemudian dilatasi dengan k = 2</p>
+                    <p><strong>3.</strong> Titik B(1, 4) ditransformasi oleh: R(90°) ∘ T(\begin{bmatrix} 2 \\ 1 \end{bmatrix}). Tentukan bayangannya.</p>
+                    <p><strong>4.</strong> Tunjukkan bahwa komposisi dua refleksi terhadap garis sejajar equivalent dengan translasi</p>
+                    <p><strong>5.</strong> Segitiga dengan titik P(1,2), Q(3,2), R(2,4) ditransformasi oleh: dilatasi k=2 kemudian rotasi 180°. Tentukan koordinat bayangannya.</p>
+                </div>
+                
+                <div class="materi-actions">
+                    <a href="dilatasi.html" class="btn">Materi Sebelumnya</a>
+                    <a href="../../../semua-materi.html" class="btn">Kembali ke Semua Materi</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Eka Project. Semua hak dilindungi.</p>
+    </footer>
+
+    <script src="../../../js/app.js"></script>
+    <style>
+        .materi-body h4 {
+            color: #2c3e50;
+            margin: 1.5rem 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+        .materi-body p {
+            margin-bottom: 1rem;
+        }
+        .materi-body ol, .materi-body ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        .materi-body li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</body>
+</html>
