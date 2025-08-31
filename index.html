@@ -156,8 +156,15 @@
                         </div>
                         <div class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full animate-pulse"></div>
                     </div>
-                    <span class="text-2xl font-bold gradient-text">SAMARA</span>
+                    <span class="text-2xl font-bold gradient-text hidden md:block">SAMARA</span>
                 </div>
+
+                <!-- Logo di tengah -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 md:block">
+                    <img src="https://manbuleleng.sch.id/assets/images/logo/new_logo_3.png" alt="Logo"
+                        class="h-10 w-auto">
+                </div>
+
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="#beranda" class="relative group">
@@ -195,7 +202,12 @@
             </div>
             <!-- Mobile Menu -->
             <div x-show="mobileMenuOpen" x-transition class="lg:hidden mt-6 pb-6">
-                <div class="flex flex-col space-y-4">
+                <div class="flex flex-col space-y-4 items-center">
+                    <!-- Logo di tengah untuk mobile -->
+                    <div class="mb-4">
+                        <img src="https://manbuleleng.sch.id/assets/images/logo/new_logo_3.png" alt="Logo"
+                            class="h-10 w-auto">
+                    </div>
                     <a href="#beranda" class="text-gray-700 hover:text-primary transition py-2">Beranda</a>
                     <a href="#materi" class="text-gray-700 hover:text-primary transition py-2">Materi</a>
                     <a href="#tentang" class="text-gray-700 hover:text-primary transition py-2">Tentang</a>
@@ -214,35 +226,19 @@
         <div class="relative z-10 container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Left Content -->
-                <div class="text-white space-y-8">
+                <div class="text-white space-y-8 mt-24 lg:mt-0">
                     <div class="space-y-4">
-                        <div class="inline-flex items-center space-x-2 bg-white/20 px-4 py-2 rounded-full">
-                            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                            <span class="text-sm">Platform Pembelajaran Matematika Digital</span>
-                        </div>
                         <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
                             SAMARA
                             <span class="block text-3xl lg:text-4xl font-light mt-2">Sarana Aplikasi Matematika untuk
                                 Akses yang Ramah Anak</span>
                         </h1>
-                        <p class="text-lg lg:text-xl text-gray-200 leading-relaxed">
-                            Platform digital yang menyediakan aplikasi matematika dengan akses yang ramah anak.
-                        </p>
                     </div>
                     <div class="flex flex-wrap gap-4">
                         <a href="#materi"
-                            class="group relative overflow-hidden bg-white text-primary px-8 py-4 rounded-2xl font-semibold">
+                            class="hover:bg-secondary relative overflow-hidden bg-white text-primary px-8 py-4 rounded-2xl font-semibold">
                             <span class="relative z-10 flex items-center">
                                 Mulai Belajar
-                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                            </span>
-                            <div
-                                class="absolute inset-0 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left">
-                            </div>
-                            <span
-                                class="absolute inset-0 flex items-center justify-center text-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left">
-                                Mulai Belajar
-                                <i class="fas fa-arrow-right ml-2"></i>
                             </span>
                         </a>
                         <a href="#tentang"
@@ -267,11 +263,9 @@
                 </div>
                 <!-- Right Content - Square Cards in Zigzag Layout -->
                 <div class="relative">
-                    <div class="absolute top-20 right-0 w-64 h-64 bg-secondary/20 rounded-full blur-3xl animate-pulse">
-                    </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
                         <!-- Card 1 - Left aligned -->
-                        <div class="bg-white/10 morphism p-6 rounded-2xl backdrop-blur-lg 
+                        <div class="bg-white/10 morphism p-6 rounded-2xl backdrop-blur-lg
                                     text-center lg:text-left w-full lg:w-80">
                             <div class="flex flex-col items-center lg:items-start space-y-4">
                                 <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center">
@@ -372,7 +366,8 @@
                         <p class="text-gray-600">Eksplorasi konsep polinomial dan aplikasinya</p>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="materi-card rounded-3xl p-6 shadow-lg">
+                        <a href="https://www.zenius.net/blog/pengertian-penerapan-polinomial" target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                             <div class="card-content">
                                 <div class="flex items-start justify-between mb-4">
                                     <div
@@ -386,61 +381,67 @@
                                     dan Fungsi
                                 </h4>
                                 <p class="card-text text-gray-600 mb-4 text-sm transition-all">Pengertian & penerapan
-                                    polinomial
-                                    dalam fungsi matematika</p>
-                                <a href="https://www.zenius.net/blog/pengertian-penerapan-polinomial" target="_blank"
-                                    class="card-link inline-flex items-center text-primary font-semibold transition-all">
-                                    <i class="fas fa-graduation-cap semantic-icon website-icon"></i>
+                                    polinomial dalam fungsi matematika</p>
+                                <!-- Link Zenius standout dengan hover -->
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                    <i
+                                        class="fas fa-graduation-cap semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
                                     Zenius
-                                </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="materi-card rounded-3xl p-6 shadow-lg">
+                        </a>
+                        <a href="https://www.quipper.com/id/blog/mapel/matematika/suku-banyak-matematika-kelas-11-pengertian-pembagian-dan-contoh-soal/"
+                            target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                             <div class="card-content">
                                 <div class="flex items-start justify-between mb-4">
                                     <div
-                                        class="card-icon w-12 h-12 bg-secondary/20 rounded-2xl flex items-center justify-center transition-all">
+                                        class="card-icon w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
                                         <i class="fas fa-divide text-primary text-xl"></i>
                                     </div>
                                     <span
-                                        class="card-badge text-xs bg-primary text-white px-3 py-1 rounded-full transition-all">Operasi</span>
+                                        class="card-badge text-xs bg-secondary text-primary px-3 py-1 rounded-full transition-all">Operasi</span>
                                 </div>
                                 <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">Pembagian
                                     Polinomial</h4>
                                 <p class="card-text text-gray-600 mb-4 text-sm transition-all">Metode Horner dan
                                     pembagian bersusun
                                 </p>
-                                <a href="https://www.quipper.com/id/blog/mapel/matematika/suku-banyak-matematika-kelas-11-pengertian-pembagian-dan-contoh-soal/"
-                                    target="_blank"
-                                    class="card-link inline-flex items-center text-primary font-semibold transition-all">
-                                    <i class="fas fa-book-open semantic-icon website-icon"></i>
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                    <i
+                                        class="fas fa-book-open semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
                                     Quipper
-                                </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="materi-card rounded-3xl p-6 shadow-lg">
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=wHTGxIrINvw" target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                             <div class="card-content">
                                 <div class="flex items-start justify-between mb-4">
                                     <div
-                                        class="card-icon w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center transition-all">
-                                        <i class="fas fa-square-root-alt text-green-600 text-xl"></i>
+                                        class="card-icon w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-square-root-alt text-primary text-xl"></i>
                                     </div>
                                     <span
-                                        class="card-badge text-xs bg-green-500 text-white px-3 py-1 rounded-full transition-all">Lanjutan</span>
+                                        class="card-badge text-xs bg-secondary text-primary px-3 py-1 rounded-full transition-all">Lanjutan</span>
                                 </div>
                                 <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">Faktor & Akar
                                 </h4>
                                 <p class="card-text text-gray-600 mb-4 text-sm transition-all">Faktorisasi dan pencarian
                                     akar-akar
                                     polinomial</p>
-                                <a href="https://rumuspintar.com/faktor-dan-akar-akar-polinomial/" target="_blank"
-                                    class="card-link green inline-flex items-center text-green-600 font-semibold transition-all">
-                                    <i class="fas fa-calculator semantic-icon doc-icon"></i>
-                                    Rumus Pintar
-                                </a>
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                    <i
+                                        class="fa-brands fa-youtube  semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                    M4th Lab
+                                </div>
                             </div>
-                        </div>
-                        <div class="materi-card rounded-3xl p-6 shadow-lg md:col-span-2">
+                        </a>
+                        <a href="https://anyflip.com/dgywv/hkfy/basic" target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] md:col-span-2">
                             <div class="card-content">
                                 <div class="flex items-start space-x-4">
                                     <div
@@ -454,135 +455,175 @@
                                         <p class="card-text text-gray-600 mb-4 transition-all">Modul lengkap polinomial
                                             SMA dengan
                                             pembahasan detail</p>
-                                        <a href="https://anyflip.com/dgywv/hkfy/basic" target="_blank"
-                                            class="card-link inline-flex items-center bg-primary text-white px-4 py-2 rounded-full font-semibold transition-all">
-                                            <i class="fas fa-file-pdf semantic-icon" style="color: white;"></i>
+                                        <div
+                                            class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                            <i
+                                                class="fas fa-file-pdf semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
                                             AnyFlip
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="materi-card rounded-3xl p-6 shadow-lg">
+                        </a>
+                        <a href="https://www.geogebra.org/u/apriyantiarifin" target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                             <div class="card-content">
-                                <div class="text-center">
+                                <div class="flex items-start justify-between mb-4">
                                     <div
-                                        class="card-icon w-16 h-16 mx-auto bg-primary rounded-2xl flex items-center justify-center mb-4 transition-all">
-                                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                                        class="card-icon w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-chart-line text-primary text-xl"></i>
                                     </div>
-                                    <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">
-                                        Visualisasi</h4>
-                                    <p class="card-text text-gray-600 mb-4 text-sm transition-all">Eksplorasi grafik
-                                        polinomial
-                                        dengan GeoGebra</p>
-                                    <a href="https://www.geogebra.org/m/zMAdmq2q" target="_blank"
-                                        class="card-link inline-flex items-center bg-primary text-white px-4 py-2 rounded-full font-semibold transition-all">
-                                        <i class="fas fa-bezier-curve semantic-icon" style="color: white;"></i>
-                                        GeoGebra
-                                    </a>
+                                    <span
+                                        class="card-badge text-xs bg-secondary text-primary px-3 py-1 rounded-full transition-all">Visual</span>
+                                </div>
+                                <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">
+                                    Visualisasi</h4>
+                                <p class="card-text text-gray-600 mb-4 text-sm transition-all">Eksplorasi grafik
+                                    polinomial
+                                    dengan GeoGebra</p>
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                    <i
+                                        class="fas fa-bezier-curve semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                    GeoGebra
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <!-- Bab 2: Matriks -->
+                <!-- Bab 2: Matriks -->
                 <div x-show="activeTab === 'bab2'" x-transition class="grid gap-8">
                     <div class="text-center mb-8">
-                        <h3 class="text-3xl font-bold text-primary mb-2">Bab 2: Operasi Aljabar pada Matriks</h3>
-                        <p class="text-gray-600">Memahami konsep matriks dan operasinya</p>
+                        <h3 class="text-3xl font-bold text-primary mb-2">Bab 2: Matriks</h3>
+                        <p class="text-gray-600">Eksplorasi konsep matriks dan operasinya</p>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="materi-card rounded-3xl p-6 shadow-lg">
-                                <div class="card-content">
-                                    <i
-                                        class="card-icon fas fa-th text-primary text-3xl mb-4 block text-center transition-all"></i>
-                                    <h4
-                                        class="card-title text-lg font-bold mb-2 text-gray-800 text-center transition-all">
-                                        Konsep
-                                        Matriks</h4>
-                                    <p class="card-text text-gray-600 text-sm mb-3 text-center transition-all">
-                                        Pengertian, jenis,
-                                        transpos</p>
-                                    <a href="https://www.zenius.net/blog/pengertian-matriks" target="_blank"
-                                        class="card-link block text-center text-primary text-sm font-semibold transition-all">
-                                        <i class="fas fa-graduation-cap semantic-icon website-icon"></i>
-                                        Zenius
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="materi-card rounded-3xl p-6 shadow-lg">
-                                <div class="card-content">
-                                    <i
-                                        class="card-icon fas fa-calculator text-primary text-3xl mb-4 block text-center transition-all"></i>
-                                    <h4
-                                        class="card-title text-lg font-bold mb-2 text-gray-800 text-center transition-all">
-                                        Operasi
-                                        Aljabar</h4>
-                                    <p class="card-text text-gray-600 text-sm mb-3 text-center transition-all">
-                                        Penjumlahan,
-                                        pengurangan, perkalian</p>
-                                    <a href="https://www.quipper.com/id/blog/sma/operasi-aljabar-pada-matriks/"
-                                        target="_blank"
-                                        class="card-link block text-center text-primary text-sm font-semibold transition-all">
-                                        <i class="fas fa-book-open semantic-icon website-icon"></i>
-                                        Quipper
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="materi-card rounded-3xl p-6 shadow-lg">
-                                <div class="card-content">
-                                    <i
-                                        class="card-icon fas fa-superscript text-green-600 text-3xl mb-4 block text-center transition-all"></i>
-                                    <h4
-                                        class="card-title text-lg font-bold mb-2 text-gray-800 text-center transition-all">
-                                        Determinan</h4>
-                                    <p class="card-text text-gray-600 text-sm mb-3 text-center transition-all">Sifat dan
-                                        perhitungan
-                                        determinan</p>
-                                    <a href="https://rumuspintar.com/determinan-matriks/" target="_blank"
-                                        class="card-link green block text-center text-green-600 text-sm font-semibold transition-all">
-                                        <i class="fas fa-calculator semantic-icon doc-icon"></i>
-                                        Rumus Pintar
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="materi-card rounded-3xl p-6 shadow-lg">
-                                <div class="card-content">
-                                    <i
-                                        class="card-icon fas fa-inverse text-purple-600 text-3xl mb-4 block text-center transition-all"></i>
-                                    <h4
-                                        class="card-title text-lg font-bold mb-2 text-gray-800 text-center transition-all">
-                                        Invers
-                                        Matriks</h4>
-                                    <p class="card-text text-gray-600 text-sm mb-3 text-center transition-all">Konsep
-                                        dan
-                                        perhitungan invers</p>
-                                    <a href="http://mathcyber1997.com/2013/02/26/invers-matriks/" target="_blank"
-                                        class="card-link purple block text-center text-purple-600 text-sm font-semibold transition-all">
-                                        <i class="fas fa-laptop-code semantic-icon website-icon"></i>
-                                        MathCyber
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="materi-card bg-gradient-to-br from-primary to-purple-700 rounded-3xl p-8 shadow-lg text-white">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <a href="https://www.ruangguru.com/blog/mengenal-matriks-dalam-matematika-pengertian-jenis-dan-transpose"
+                            target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                             <div class="card-content">
-                                <div class="text-center">
-                                    <i class="fas fa-cube text-6xl mb-6"></i>
-                                    <h4 class="card-title text-2xl font-bold mb-4 transition-all">Visualisasi 3D</h4>
-                                    <p class="card-text text-purple-100 mb-6 transition-all">Eksplorasi transformasi
-                                        matriks dalam
-                                        ruang 3 dimensi</p>
-                                    <a href="https://www.geogebra.org/m/Cz2QqD6v" target="_blank"
-                                        class="card-link inline-flex items-center bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-purple-100 transition">
-                                        <i class="fas fa-bezier-curve semantic-icon"></i>
-                                        Buka GeoGebra
-                                    </a>
+                                <div class="flex items-start justify-between mb-4">
+                                    <div
+                                        class="card-icon w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-th text-primary text-xl"></i>
+                                    </div>
+                                    <span
+                                        class="card-badge text-xs bg-secondary text-primary px-3 py-1 rounded-full transition-all">Dasar</span>
+                                </div>
+                                <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">Pengertian
+                                    Matriks
+                                </h4>
+                                <p class="card-text text-gray-600 mb-4 text-sm transition-all">Konsep dasar matriks dan
+                                    jenis-jenisnya
+                                </p>
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                    <i
+                                        class="fas fa-globe semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                    Ruangguru
                                 </div>
                             </div>
-                        </div>
+                        </a>
+                        <a href="youtube.com/watch?v=2mIQgRSsGyc" target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+                            <div class="card-content">
+                                <div class="flex items-start justify-between mb-4">
+                                    <div
+                                        class="card-icon w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-calculator text-primary text-xl"></i>
+                                    </div>
+                                    <span
+                                        class="card-badge text-xs bg-secondary text-primary px-3 py-1 rounded-full transition-all">Operasi</span>
+                                </div>
+                                <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">Operasi
+                                    Matriks</h4>
+                                <p class="card-text text-gray-600 mb-4 text-sm transition-all">Penjumlahan, pengurangan,
+                                    dan perkalian
+                                    matriks</p>
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                    <i
+                                        class="fa-brands fa-youtube semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                    M4th Lab
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://www.konsep-matematika.com/2015/09/determinan-dan-invers-matriks.html"
+                            target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+                            <div class="card-content">
+                                <div class="flex items-start justify-between mb-4">
+                                    <div
+                                        class="card-icon w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-superscript text-primary text-xl"></i>
+                                    </div>
+                                    <span
+                                        class="card-badge text-xs bg-secondary text-primary px-3 py-1 rounded-full transition-all">Lanjutan</span>
+                                </div>
+                                <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">Determinan &
+                                    Invers
+                                </h4>
+                                <p class="card-text text-gray-600 mb-4 text-sm transition-all">Menghitung determinan dan
+                                    matriks invers
+                                </p>
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                    <i
+                                        class="fas fa-globe semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                    KoMa
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://mathcyber1997.com/soal-dan-pembahasan-matriks-determinan-dan-invers-matriks/"
+                            target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] md:col-span-2">
+                            <div class="card-content">
+                                <div class="flex items-start space-x-4">
+                                    <div
+                                        class="card-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-pencil-alt text-primary text-2xl"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="card-title text-2xl font-bold mb-2 text-gray-800 transition-all">
+                                            Latihan Soal
+                                        </h4>
+                                        <p class="card-text text-gray-600 mb-4 transition-all">Kumpulan soal matriks SMA
+                                            dengan
+                                            pembahasan lengkap</p>
+                                        <div
+                                            class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                            <i
+                                                class="fas fa-pencil semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                            MathCyber1997
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://matrixcalc.org/" target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+                            <div class="card-content">
+                                <div class="flex items-start justify-between mb-4">
+                                    <div
+                                        class="card-icon w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-project-diagram text-primary text-xl"></i>
+                                    </div>
+                                    <span
+                                        class="card-badge text-xs bg-secondary text-primary px-3 py-1 rounded-full transition-all">Aplikasi</span>
+                                </div>
+                                <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">
+                                    Aplikasi Matriks</h4>
+                                <p class="card-text text-gray-600 mb-4 text-sm transition-all">Gunakan kalkulator
+                                    matriks untuk menguji jawabanmu</p>
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                    <i
+                                        class="fas fa-bezier-curve semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                    Matrix Calc
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <!-- Bab 3: Transformasi Geometri -->
@@ -592,139 +633,167 @@
                         <p class="text-gray-600">Memahami berbagai jenis transformasi geometri</p>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="materi-card rounded-3xl p-6 shadow-lg relative overflow-hidden">
+                        <a href="https://www.zenius.net/blog/konsep-dan-rumus-translasi/" target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                             <div class="card-content">
-                                <div class="absolute top-0 right-0 w-20 h-20 bg-primary/10 rounded-bl-full"></div>
-                                <i
-                                    class="card-icon fas fa-arrows-alt-h text-primary text-3xl mb-4 block transition-all"></i>
+                                <div class="flex items-start justify-between mb-4">
+                                    <div
+                                        class="card-icon w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-arrows-alt-h text-primary text-xl"></i>
+                                    </div>
+                                    <span
+                                        class="card-badge text-xs bg-secondary text-primary px-3 py-1 rounded-full transition-all">Dasar</span>
+                                </div>
                                 <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">Translasi
                                 </h4>
-                                <p class="card-text text-gray-600 text-sm mb-4 transition-all">Pergeseran objek dalam
+                                <p class="card-text text-gray-600 mb-4 text-sm transition-all">Pergeseran objek dalam
                                     bidang</p>
-                                <div class="space-y-2">
-                                    <a href="https://www.brainacademy.id/blog/konsep-dan-soal-transformasi-geometri"
-                                        target="_blank"
-                                        class="card-link block text-sm text-primary font-semibold transition-all">
-                                        <i class="fas fa-graduation-cap semantic-icon website-icon"></i>
-                                        Brain Academy
-                                    </a>
-                                    <a href="https://www.youtube.com/watch?v=3CnCxWwXguA" target="_blank"
-                                        class="card-link block text-sm text-primary font-semibold transition-all">
-                                        <i class="fab fa-youtube semantic-icon video-icon"></i>
-                                        Video Tutorial
-                                    </a>
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                    <i
+                                        class="fas fa-globe semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                    Zenius
                                 </div>
                             </div>
-                        </div>
-                        <div class="materi-card rounded-3xl p-6 shadow-lg relative overflow-hidden">
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=qT9pr1C_SDY&ab_channel=m4th-lab" target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                             <div class="card-content">
-                                <div class="absolute top-0 right-0 w-20 h-20 bg-secondary/20 rounded-bl-full"></div>
-                                <i class="card-icon fas fa-reflect text-primary text-3xl mb-4 block transition-all"></i>
+                                <div class="flex items-start justify-between mb-4">
+                                    <div
+                                        class="card-icon w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-book text-primary text-xl"></i>
+                                    </div>
+                                    <span
+                                        class="card-badge text-xs bg-secondary text-primary px-3 py-1 rounded-full transition-all">Dasar</span>
+                                </div>
                                 <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">Refleksi</h4>
-                                <p class="card-text text-gray-600 text-sm mb-4 transition-all">Pencerminan terhadap
+                                <p class="card-text text-gray-600 mb-4 text-sm transition-all">Pencerminan terhadap
                                     sumbu</p>
-                                <div class="space-y-2">
-                                    <a href="https://www.brainacademy.id/blog/konsep-dan-soal-transformasi-geometri"
-                                        target="_blank"
-                                        class="card-link block text-sm text-primary font-semibold transition-all">
-                                        <i class="fas fa-graduation-cap semantic-icon website-icon"></i>
-                                        Brain Academy
-                                    </a>
-                                    <a href="https://www.youtube.com/watch?v=3CnCxWwXguA" target="_blank"
-                                        class="card-link block text-sm text-primary font-semibold transition-all">
-                                        <i class="fab fa-youtube semantic-icon video-icon"></i>
-                                        Video Tutorial
-                                    </a>
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                    <i
+                                        class="fa-brands fa-youtube semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                    M4th Lab
                                 </div>
                             </div>
-                        </div>
-                        <div class="materi-card rounded-3xl p-6 shadow-lg relative overflow-hidden">
+                        </a>
+                        <a href="https://akupintar.id/belajar/-/online/materi/modul/9/matematika/transformasi/rotasi/55406277"
+                            target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                             <div class="card-content">
-                                <div class="absolute top-0 right-0 w-20 h-20 bg-green-100 rounded-bl-full"></div>
-                                <i
-                                    class="card-icon fas fa-sync-alt text-green-600 text-3xl mb-4 block transition-all"></i>
+                                <div class="flex items-start justify-between mb-4">
+                                    <div
+                                        class="card-icon w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-sync-alt text-primary text-xl"></i>
+                                    </div>
+                                    <span
+                                        class="card-badge text-xs bg-secondary text-primary px-3 py-1 rounded-full transition-all">Dasar</span>
+                                </div>
                                 <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">Rotasi</h4>
-                                <p class="card-text text-gray-600 text-sm mb-4 transition-all">Perputaran objek</p>
-                                <div class="space-y-2">
-                                    <a href="https://www.brainacademy.id/blog/konsep-dan-soal-transformasi-geometri"
-                                        target="_blank"
-                                        class="card-link block text-sm text-primary font-semibold transition-all">
-                                        <i class="fas fa-graduation-cap semantic-icon website-icon"></i>
-                                        Brain Academy
-                                    </a>
-                                    <a href="https://www.youtube.com/watch?v=3CnCxWwXguA" target="_blank"
-                                        class="card-link block text-sm text-primary font-semibold transition-all">
-                                        <i class="fab fa-youtube semantic-icon video-icon"></i>
-                                        Video Tutorial
-                                    </a>
+                                <p class="card-text text-gray-600 mb-4 text-sm transition-all">Perputaran objek</p>
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                    <i
+                                        class="fas fa-globe semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                    Aku Pintar
                                 </div>
                             </div>
-                        </div>
-                        <div class="materi-card rounded-3xl p-6 shadow-lg relative overflow-hidden">
+                        </a>
+                        <a href="https://www.quipper.com/id/blog/mapel/matematika/dilatasi-matematika/" target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                             <div class="card-content">
-                                <div class="absolute top-0 right-0 w-20 h-20 bg-purple-100 rounded-bl-full"></div>
-                                <i
-                                    class="card-icon fas fa-expand-arrows-alt text-purple-600 text-3xl mb-4 block transition-all"></i>
+                                <div class="flex items-start justify-between mb-4">
+                                    <div
+                                        class="card-icon w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-expand-arrows-alt text-primary text-xl"></i>
+                                    </div>
+                                    <span
+                                        class="card-badge text-xs bg-secondary text-primary px-3 py-1 rounded-full transition-all">Dasar</span>
+                                </div>
                                 <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">Dilatasi</h4>
-                                <p class="card-text text-gray-600 text-sm mb-4 transition-all">Perbesaran/perkecilan</p>
-                                <div class="space-y-2">
-                                    <a href="https://www.brainacademy.id/blog/konsep-dan-soal-transformasi-geometri"
-                                        target="_blank"
-                                        class="card-link block text-sm text-primary font-semibold transition-all">
-                                        <i class="fas fa-graduation-cap semantic-icon website-icon"></i>
-                                        Brain Academy
-                                    </a>
-                                    <a href="https://www.youtube.com/watch?v=uMxYXmfCLgA" target="_blank"
-                                        class="card-link block text-sm text-primary font-semibold transition-all">
-                                        <i class="fab fa-youtube semantic-icon video-icon"></i>
-                                        Video Spesifik
-                                    </a>
+                                <p class="card-text text-gray-600 mb-4 text-sm transition-all">Perbesaran/perkecilan</p>
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                    <i
+                                        class="fas fa-globe semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                    Quipper
                                 </div>
                             </div>
-                        </div>
-                        <div class="materi-card rounded-3xl p-6 shadow-lg relative overflow-hidden">
+                        </a>
+                        <a href="https://www.slideshare.net/slideshow/komposisi-transformasi-geometri-kelas-xipptx/266406303"
+                            target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                             <div class="card-content">
-                                <div class="absolute top-0 right-0 w-20 h-20 bg-yellow-100 rounded-bl-full"></div>
-                                <i
-                                    class="card-icon fas fa-layer-group text-yellow-600 text-3xl mb-4 block transition-all"></i>
+                                <div class="flex items-start justify-between mb-4">
+                                    <div
+                                        class="card-icon w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-layer-group text-primary text-xl"></i>
+                                    </div>
+                                    <span
+                                        class="card-badge text-xs bg-secondary text-primary px-3 py-1 rounded-full transition-all">Lanjutan</span>
+                                </div>
                                 <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">Komposisi
                                 </h4>
-                                <p class="card-text text-gray-600 text-sm mb-4 transition-all">Kombinasi transformasi
+                                <p class="card-text text-gray-600 mb-4 text-sm transition-all">Kombinasi transformasi
                                 </p>
-                                <div class="space-y-2">
-                                    <a href="https://www.brainacademy.id/blog/konsep-dan-soal-transformasi-geometri"
-                                        target="_blank"
-                                        class="card-link block text-sm text-primary font-semibold transition-all">
-                                        <i class="fas fa-graduation-cap semantic-icon website-icon"></i>
-                                        Brain Academy
-                                    </a>
-                                    <a href="https://www.youtube.com/watch?v=3CnCxWwXguA" target="_blank"
-                                        class="card-link block text-sm text-primary font-semibold transition-all">
-                                        <i class="fab fa-youtube semantic-icon video-icon"></i>
-                                        Video Tutorial
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="materi-card rounded-3xl p-6 shadow-lg">
-                            <div class="card-content">
-                                <div class="text-center">
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
                                     <i
-                                        class="card-icon fas fa-shapes text-primary text-4xl mb-4 block transition-all"></i>
-                                    <h4 class="card-title text-lg font-bold mb-3 text-gray-800 transition-all">GeoGebra
-                                        Guide</h4>
-                                    <p class="card-text text-gray-600 text-sm mb-4 transition-all">Tutorial transformasi
-                                        geometri
-                                        interaktif</p>
-                                    <a href="https://blog.advan.id/34966/geogebra-untuk-mengajarkan-konsep-transformasi-geometri/"
-                                        target="_blank"
-                                        class="card-link inline-flex items-center bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold transition-all">
-                                        <i class="fas fa-bezier-curve semantic-icon" style="color: white;"></i>
-                                        Advan Blog
-                                    </a>
+                                        class="fas fa-presentation-screen semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                    Slideshare
                                 </div>
                             </div>
-                        </div>
+                        </a>
+                        <a href="https://www.geogebra.org/m/rs6DPZVn" target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+                            <div class="card-content">
+                                <div class="flex items-start justify-between mb-4">
+                                    <div
+                                        class="card-icon w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-shapes text-primary text-xl"></i>
+                                    </div>
+                                    <span
+                                        class="card-badge text-xs bg-secondary text-primary px-3 py-1 rounded-full transition-all">Visual</span>
+                                </div>
+                                <h4 class="card-title text-xl font-bold mb-3 text-gray-800 transition-all">GeoGebra</h4>
+                                <p class="card-text text-gray-600 mb-4 text-sm transition-all">Tutorial transformasi
+                                    geometri interaktif
+                                </p>
+                                <div
+                                    class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                    <i
+                                        class="fas fa-shapes semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                    GeoGebra
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://www.defantri.com/2015/10/matematika-dasar-transformasi-geometri.html"
+                            target="_blank"
+                            class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] md:col-span-3">
+                            <div class="card-content">
+                                <div class="flex items-start space-x-4">
+                                    <div
+                                        class="card-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center transition-all">
+                                        <i class="fas fa-pencil-alt text-primary text-2xl"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="card-title text-2xl font-bold mb-2 text-gray-800 transition-all">
+                                            Latihan Soal
+                                        </h4>
+                                        <p class="card-text text-gray-600 mb-4 transition-all">Kumpulan soal
+                                            transformasi geometri SMA
+                                            dengan pembahasan lengkap</p>
+                                        <div
+                                            class="flex items-center gap-2 text-lg font-bold text-primary transition-all duration-300 group-hover:text-white">
+                                            <i
+                                                class="fas fa-pencil semantic-icon website-icon text-xl transition-transform duration-300 group-hover:scale-125"></i>
+                                            Defantri
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -895,29 +964,23 @@
                     <form class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-gray-700 text-sm font-semibold mb-2">Nama Lengkap</label>
+                                <label class="block text-gray-700 text-sm font-semibold mb-2">Nama</label>
                                 <input type="text"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
-                                    placeholder="John Doe">
+                                    placeholder="Nama">
                             </div>
                             <div>
-                                <label class="block text-gray-700 text-sm font-semibold mb-2">Email</label>
-                                <input type="email"
+                                <label class="block text-gray-700 text-sm font-semibold mb-2">Materi</label>
+                                <input type="text"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
-                                    placeholder="john@example.com">
+                                    placeholder="Polinomial, Matriks, dll">
                             </div>
                         </div>
                         <div>
-                            <label class="block text-gray-700 text-sm font-semibold mb-2">Subjek</label>
-                            <input type="text"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
-                                placeholder="Pertanyaan tentang SAMARA">
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 text-sm font-semibold mb-2">Pesan</label>
+                            <label class="block text-gray-700 text-sm font-semibold mb-2">Mau bertanya tentang?</label>
                             <textarea rows="5"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition resize-none"
-                                placeholder="Tulis pesan Anda di sini..."></textarea>
+                                placeholder="Tulis pertanyaan Kamu di sini..."></textarea>
                         </div>
                         <button type="submit"
                             class="w-full bg-gradient-to-r from-primary to-purple-700 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition transform hover:scale-[1.02]">
@@ -938,7 +1001,7 @@
                             <div>
                                 <h4 class="font-semibold text-gray-800">Email</h4>
                                 <a href="mailto:samara@example.com"
-                                    class="text-primary hover:underline">samara@example.com</a>
+                                    class="text-primary hover:underline">putuekawidyantiniputri@gmail.com</a>
                             </div>
                         </div>
                         <div
@@ -948,18 +1011,8 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-800">WhatsApp</h4>
-                                <a href="https://wa.me/6281234567890" target="_blank"
-                                    class="text-green-600 hover:underline">0812-3456-7890</a>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-white rounded-2xl p-6 shadow-lg flex items-center space-x-4 hover:shadow-xl transition">
-                            <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center">
-                                <i class="fas fa-globe text-blue-600 text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Website</h4>
-                                <a href="#" class="text-blue-600 hover:underline">www.samara.edu</a>
+                                <a href="https://wa.me/6282145083835" target="_blank"
+                                    class="text-green-600 hover:underline">+62 821-4508-3835</a>
                             </div>
                         </div>
                     </div>
@@ -968,12 +1021,12 @@
                         <h4 class="font-semibold text-gray-800 mb-4">Lokasi Kami</h4>
                         <div class="rounded-xl overflow-hidden">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.2!2d115.0!3d-8.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMDYnMDAuMCJTIDExNcKwMDAnMDAuMCJF!5e0!3m2!1sen!2sid!4v1234567890"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252768.98058696155!2d114.68026725996954!3d-8.15072073456965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd17a1c063b0139%3A0x9a982d446e1c615a!2sMAN%20Buleleng!5e0!3m2!1sen!2sid!4v1756652192452!5m2!1sen!2sid"
                                 width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade" class="rounded-xl">
                             </iframe>
                         </div>
-                        <a href="https://maps.app.goo.gl/3a9UumTRb6omLUam9" target="_blank"
+                        <a href="https://share.google/UEb7vuHMGt7bx9sHu" target="_blank"
                             class="inline-flex items-center text-primary hover:underline mt-3">
                             <i class="fas fa-map-marker-alt mr-2"></i>
                             Buka di Google Maps
@@ -999,24 +1052,7 @@
                     <p class="text-gray-400 mb-6 max-w-md">
                         Platform aplikasi matematika yang ramah anak untuk generasi masa depan.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#"
-                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
+
                 </div>
                 <!-- Quick Links -->
                 <div>
@@ -1070,6 +1106,41 @@
             animation: scroll 1.5s infinite;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Ambil nilai dari form
+                const nama = document.querySelector('input[placeholder="Nama"]').value;
+                const materi = document.querySelector('input[placeholder="Polinomial, Matriks, dll"]').value;
+                const pertanyaan = document.querySelector('textarea[placeholder="Tulis pertanyaan Kamu di sini..."]').value;
+
+                // Validasi sederhana
+                if (!nama || !materi || !pertanyaan) {
+                    alert('Mohon lengkapi semua field!');
+                    return;
+                }
+
+                // Format pesan WhatsApp
+                const pesan = `Halo Ms.Eka, Saya ${nama} ingin bertanya tentang materi ${materi}.\n\nPertanyaan saya:%0A${pertanyaan}`;
+
+                // Nomor WhatsApp tujuan (ganti dengan nomor yang sesuai)
+                const nomorWa = '6282145083835'; // Format: 62 + nomor hp tanpa 0 di depan
+
+                // Buat URL WhatsApp
+                const urlWa = `https://wa.me/${nomorWa}?text=${encodeURIComponent(pesan)}`;
+
+                // Buka WhatsApp
+                window.open(urlWa, '_blank');
+
+                // Reset form setelah terkirim
+                form.reset();
+            });
+        });
+    </script>
 </body>
 
 </html>
