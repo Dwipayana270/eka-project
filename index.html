@@ -29,16 +29,13 @@
     />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
-
       body {
         font-family: "Space Grotesk", sans-serif;
       }
-
       .diagonal-section {
         position: relative;
         overflow: hidden;
       }
-
       .diagonal-section::before {
         content: "";
         position: absolute;
@@ -49,32 +46,26 @@
         background: inherit;
         transform: skewY(-2deg);
       }
-
       .zigzag-left {
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
       }
-
       .zigzag-right {
         clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
       }
-
       .floating-nav {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
-
       .morphism {
         background: rgba(255, 255, 255, 0.5);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.2);
       }
-
       .gradient-text {
         background: linear-gradient(135deg, #b33791 0%, #e6e6fa 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
-
       /* New Fade Hover Effect */
       .materi-card {
         position: relative;
@@ -82,7 +73,6 @@
         transition: all 0.4s ease;
         border: 1px solid #e5e7eb;
       }
-
       .materi-card:hover {
         background: linear-gradient(135deg, #b33791 0%, #8e2b73 100%);
         color: white;
@@ -90,48 +80,38 @@
         box-shadow: 0 20px 40px rgba(179, 55, 145, 0.2);
         border-color: transparent;
       }
-
       .materi-card:hover .card-icon {
         color: white;
         background: rgba(255, 255, 255, 0.2);
       }
-
       .materi-card:hover .card-title {
         color: white;
       }
-
       .materi-card:hover .card-text {
         color: rgba(255, 255, 255, 0.9);
       }
-
       .materi-card:hover .card-link {
         color: white;
         background: rgba(255, 255, 255, 0.2);
         text-decoration: none;
       }
-
       .materi-card:hover .card-badge {
         background: rgba(255, 255, 255, 0.3);
         color: white;
       }
-
       .materi-card:hover .card-link.green {
         color: #d1fae5;
       }
-
       .materi-card:hover .card-link.purple {
         color: #e9d5ff;
       }
-
       .card-content {
         position: relative;
         z-index: 1;
       }
-
       .card-hover {
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
-
       .card-hover:hover {
         transform: translateY(-10px) rotateZ(-2deg);
       }
@@ -152,46 +132,43 @@
       };
     </script>
   </head>
-
   <body class="bg-gray-50 font-space">
     <!-- Unique Navigation -->
     <nav
       class="fixed top-0 left-0 right-0 z-50 floating-nav"
       :class="scrolled ? 'morphism shadow-lg ' : 'bg-white/70'"
     >
-      <div class="container mx-auto px-6 py-4">
+      <div class="container mx-auto px-4 sm:px-6 py-4">
         <div class="flex justify-between items-center">
           <div class="flex items-center space-x-4">
             <div class="relative">
               <div
-                class="w-12 h-12 bg-primary rounded-2xl transform rotate-45 flex items-center justify-center"
+                class="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-2xl transform rotate-45 flex items-center justify-center"
               >
                 <i
-                  class="fas fa-infinity text-white text-xl transform -rotate-45"
+                  class="fas fa-infinity text-white text-lg sm:text-xl transform -rotate-45"
                 ></i>
               </div>
               <div
                 class="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full animate-pulse"
               ></div>
             </div>
-            <span class="text-2xl font-bold gradient-text hidden md:block"
+            <span class="text-xl sm:text-2xl font-bold gradient-text hidden md:block"
               >SAMARA</span
             >
           </div>
-
           <!-- Logo di tengah -->
           <div class="absolute left-1/2 transform -translate-x-1/2 md:block">
             <img
               src="https://manbuleleng.sch.id/assets/images/logo/new_logo_3.png"
               alt="Logo"
-              class="h-10 w-auto"
+              class="h-8 w-auto sm:h-10"
             />
           </div>
-
           <!-- Desktop Menu -->
-          <div class="hidden lg:flex items-center space-x-8">
+          <div class="hidden lg:flex items-center space-x-4 sm:space-x-8">
             <a href="#beranda" class="relative group">
-              <span class="text-gray-700 group-hover:text-primary transition"
+              <span class="text-gray-700 group-hover:text-primary transition text-sm sm:text-base"
                 >Beranda</span
               >
               <div
@@ -199,7 +176,7 @@
               ></div>
             </a>
             <a href="#materi" class="relative group">
-              <span class="text-gray-700 group-hover:text-primary transition"
+              <span class="text-gray-700 group-hover:text-primary transition text-sm sm:text-base"
                 >Materi</span
               >
               <div
@@ -207,7 +184,7 @@
               ></div>
             </a>
             <a href="#tentang" class="relative group">
-              <span class="text-gray-700 group-hover:text-primary transition"
+              <span class="text-gray-700 group-hover:text-primary transition text-sm sm:text-base"
                 >Tentang</span
               >
               <div
@@ -215,7 +192,7 @@
               ></div>
             </a>
             <a href="#kontak" class="relative group">
-              <span class="text-gray-700 group-hover:text-primary transition"
+              <span class="text-gray-700 group-hover:text-primary transition text-sm sm:text-base"
                 >Kontak</span
               >
               <div
@@ -249,7 +226,7 @@
               <img
                 src="https://manbuleleng.sch.id/assets/images/logo/new_logo_3.png"
                 alt="Logo"
-                class="h-10 w-auto"
+                class="h-8 w-auto sm:h-10"
               />
             </div>
             <a
@@ -291,14 +268,14 @@
           class="absolute inset-0 bg-gradient-to-r from-primary via-primary/50 to-primary"
         ></div>
       </div>
-      <div class="relative z-10 container mx-auto px-6">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="relative z-10 container mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <!-- Left Content -->
-          <div class="text-white space-y-8 mt-24 lg:mt-0">
+          <div class="text-white space-y-6 lg:space-y-8 mt-20 lg:mt-0">
             <div class="space-y-4">
-              <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
+              <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
                 SAMARA
-                <span class="block text-3xl lg:text-4xl font-light mt-2"
+                <span class="block text-2xl sm:text-3xl lg:text-4xl font-light mt-2"
                   >Sarana Aplikasi Matematika untuk Akses yang Ramah Anak</span
                 >
               </h1>
@@ -306,7 +283,7 @@
             <div class="flex flex-wrap gap-4">
               <a
                 href="#materi"
-                class="hover:bg-secondary relative overflow-hidden bg-white text-primary px-8 py-4 rounded-2xl font-semibold"
+                class="hover:bg-secondary relative overflow-hidden bg-white text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-sm sm:text-base"
               >
                 <span class="relative z-10 flex items-center">
                   Mulai Belajar
@@ -314,23 +291,23 @@
               </a>
               <a
                 href="#tentang"
-                class="border-2 border-white text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white hover:text-primary transition"
+                class="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold hover:bg-white hover:text-primary transition text-sm sm:text-base"
               >
                 Pelajari Lebih Lanjut
               </a>
             </div>
-            <div class="flex items-center space-x-8 pt-4">
+            <div class="flex items-center space-x-6 sm:space-x-8 pt-4">
               <div class="text-center">
-                <div class="text-3xl font-bold">3</div>
-                <div class="text-sm text-gray-300">Bab Materi</div>
+                <div class="text-2xl sm:text-3xl font-bold">3</div>
+                <div class="text-xs sm:text-sm text-gray-300">Bab Materi</div>
               </div>
               <div class="text-center">
-                <div class="text-3xl font-bold">15+</div>
-                <div class="text-sm text-gray-300">Sumber Belajar</div>
+                <div class="text-2xl sm:text-3xl font-bold">15+</div>
+                <div class="text-xs sm:text-sm text-gray-300">Sumber Belajar</div>
               </div>
               <div class="text-center">
-                <div class="text-3xl font-bold">24/7</div>
-                <div class="text-sm text-gray-300">Akses</div>
+                <div class="text-2xl sm:text-3xl font-bold">24/7</div>
+                <div class="text-xs sm:text-sm text-gray-300">Akses</div>
               </div>
             </div>
           </div>
@@ -345,13 +322,13 @@
                   class="flex flex-col items-center lg:items-start space-y-4"
                 >
                   <div
-                    class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center"
+                    class="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-xl flex items-center justify-center"
                   >
-                    <i class="fas fa-infinity text-white text-2xl"></i>
+                    <i class="fas fa-infinity text-white text-xl sm:text-2xl"></i>
                   </div>
                   <div>
-                    <h3 class="text-white font-semibold text-xl">Sarana</h3>
-                    <p class="text-gray-300 text-sm">
+                    <h3 class="text-white font-semibold text-lg sm:text-xl">Sarana</h3>
+                    <p class="text-gray-300 text-xs sm:text-sm">
                       Media pembelajaran lengkap
                     </p>
                   </div>
@@ -363,13 +340,13 @@
               >
                 <div class="flex flex-col items-center lg:items-end space-y-4">
                   <div
-                    class="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center"
+                    class="w-14 h-14 sm:w-16 sm:h-16 bg-secondary rounded-xl flex items-center justify-center"
                   >
-                    <i class="fas fa-lightbulb text-primary text-2xl"></i>
+                    <i class="fas fa-lightbulb text-primary text-xl sm:text-2xl"></i>
                   </div>
                   <div>
-                    <h3 class="text-white font-semibold text-xl">Aplikasi</h3>
-                    <p class="text-gray-300 text-sm">Teknologi modern</p>
+                    <h3 class="text-white font-semibold text-lg sm:text-xl">Aplikasi</h3>
+                    <p class="text-gray-300 text-xs sm:text-sm">Teknologi modern</p>
                   </div>
                 </div>
               </div>
@@ -381,13 +358,13 @@
                   class="flex flex-col items-center lg:items-start space-y-4"
                 >
                   <div
-                    class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center"
+                    class="w-14 h-14 sm:w-16 sm:h-16 bg-green-500 rounded-xl flex items-center justify-center"
                   >
-                    <i class="fas fa-child text-white text-2xl"></i>
+                    <i class="fas fa-child text-white text-xl sm:text-2xl"></i>
                   </div>
                   <div>
-                    <h3 class="text-white font-semibold text-xl">Ramah Anak</h3>
-                    <p class="text-gray-300 text-sm">
+                    <h3 class="text-white font-semibold text-lg sm:text-xl">Ramah Anak</h3>
+                    <p class="text-gray-300 text-xs sm:text-sm">
                       Antarmuka yang mudah digunakan
                     </p>
                   </div>
@@ -409,35 +386,35 @@
       </div>
     </section>
     <!-- Materi Section with Timeline Layout -->
-    <section id="materi" class="py-20 diagonal-section bg-gray-100">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-5xl font-bold gradient-text mb-4">
+    <section id="materi" class="py-16 sm:py-20 diagonal-section bg-gray-100">
+      <div class="container mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="text-3xl sm:text-5xl font-bold gradient-text mb-4">
             Materi Pembelajaran
           </h2>
-          <p class="text-xl text-gray-600">
+          <p class="text-lg sm:text-xl text-gray-600">
             Jelajahi konsep matematika melalui berbagai sumber terpercaya
           </p>
         </div>
         <!-- Timeline Navigation -->
-        <div class="relative max-w-4xl mx-auto mb-12">
+        <div class="relative max-w-4xl mx-auto mb-8 sm:mb-12">
           <div
             class="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary transform -translate-y-1/2"
           ></div>
-          <div class="relative flex justify-between">
+          <div class="relative flex justify-between px-4 sm:px-0">
             <button @click="activeTab = 'bab1'" class="relative group">
               <div
-                class="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-4 transition-all"
+                class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-4 transition-all"
                 :class="activeTab === 'bab1' ? 'border-primary scale-110' : 'border-gray-300 group-hover:border-primary'"
               >
                 <span
-                  class="font-bold"
+                  class="font-bold text-sm sm:text-base"
                   :class="activeTab === 'bab1' ? 'text-primary' : 'text-gray-600'"
                   >1</span
                 >
               </div>
               <div
-                class="absolute top-20 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm font-semibold"
+                class="absolute top-16 sm:top-20 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-xs sm:text-sm font-semibold"
                 :class="activeTab === 'bab1' ? 'text-primary' : 'text-gray-600'"
               >
                 Polinomial
@@ -445,17 +422,17 @@
             </button>
             <button @click="activeTab = 'bab2'" class="relative group">
               <div
-                class="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-4 transition-all"
+                class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-4 transition-all"
                 :class="activeTab === 'bab2' ? 'border-primary scale-110' : 'border-gray-300 group-hover:border-primary'"
               >
                 <span
-                  class="font-bold"
+                  class="font-bold text-sm sm:text-base"
                   :class="activeTab === 'bab2' ? 'text-primary' : 'text-gray-600'"
                   >2</span
                 >
               </div>
               <div
-                class="absolute top-20 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm font-semibold"
+                class="absolute top-16 sm:top-20 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-xs sm:text-sm font-semibold"
                 :class="activeTab === 'bab2' ? 'text-primary' : 'text-gray-600'"
               >
                 Matriks
@@ -463,17 +440,17 @@
             </button>
             <button @click="activeTab = 'bab3'" class="relative group">
               <div
-                class="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-4 transition-all"
+                class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full shadow-lg flex items-center justify-center border-4 transition-all"
                 :class="activeTab === 'bab3' ? 'border-primary scale-110' : 'border-gray-300 group-hover:border-primary'"
               >
                 <span
-                  class="font-bold"
+                  class="font-bold text-sm sm:text-base"
                   :class="activeTab === 'bab3' ? 'text-primary' : 'text-gray-600'"
                   >3</span
                 >
               </div>
               <div
-                class="absolute top-20 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm font-semibold"
+                class="absolute top-16 sm:top-20 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-xs sm:text-sm font-semibold"
                 :class="activeTab === 'bab3' ? 'text-primary' : 'text-gray-600'"
               >
                 Transformasi
@@ -486,7 +463,7 @@
           <!-- Bab 1: Polinomial -->
           <div x-show="activeTab === 'bab1'" x-transition class="grid gap-8">
             <div class="text-center mb-8">
-              <h3 class="text-3xl font-bold text-primary mb-2">
+              <h3 class="text-2xl sm:text-3xl font-bold text-primary mb-2">
                 Bab 1: Polinomial
               </h3>
               <p class="text-gray-600">
@@ -512,7 +489,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     Polinomial dan Fungsi
                   </h4>
@@ -550,7 +527,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     Pembagian Polinomial
                   </h4>
@@ -589,7 +566,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     Faktor & Akar
                   </h4>
@@ -616,13 +593,13 @@
                 <div class="card-content">
                   <div class="flex items-start space-x-4">
                     <div
-                      class="card-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center transition-all"
+                      class="card-icon w-14 h-14 sm:w-16 sm:h-16 bg-primary/10 rounded-2xl flex items-center justify-center transition-all"
                     >
-                      <i class="fas fa-pencil-alt text-primary text-2xl"></i>
+                      <i class="fas fa-pencil-alt text-primary text-xl sm:text-2xl"></i>
                     </div>
                     <div class="flex-1">
                       <h4
-                        class="card-title text-2xl font-bold mb-2 text-gray-800 transition-all"
+                        class="card-title text-xl sm:text-2xl font-bold mb-2 text-gray-800 transition-all"
                       >
                         Latihan Soal
                       </h4>
@@ -659,7 +636,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     Visualisasi
                   </h4>
@@ -681,10 +658,9 @@
             </div>
           </div>
           <!-- Bab 2: Matriks -->
-          <!-- Bab 2: Matriks -->
           <div x-show="activeTab === 'bab2'" x-transition class="grid gap-8">
             <div class="text-center mb-8">
-              <h3 class="text-3xl font-bold text-primary mb-2">
+              <h3 class="text-2xl sm:text-3xl font-bold text-primary mb-2">
                 Bab 2: Matriks
               </h3>
               <p class="text-gray-600">
@@ -710,7 +686,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     Pengertian Matriks
                   </h4>
@@ -730,7 +706,7 @@
                 </div>
               </a>
               <a
-                href="youtube.com/watch?v=2mIQgRSsGyc"
+                href="https://www.youtube.com/watch?v=2mIQgRSsGyc"
                 target="_blank"
                 class="group materi-card block rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
               >
@@ -747,7 +723,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     Operasi Matriks
                   </h4>
@@ -784,7 +760,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     Determinan & Invers
                   </h4>
@@ -811,13 +787,13 @@
                 <div class="card-content">
                   <div class="flex items-start space-x-4">
                     <div
-                      class="card-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center transition-all"
+                      class="card-icon w-14 h-14 sm:w-16 sm:h-16 bg-primary/10 rounded-2xl flex items-center justify-center transition-all"
                     >
-                      <i class="fas fa-pencil-alt text-primary text-2xl"></i>
+                      <i class="fas fa-pencil-alt text-primary text-xl sm:text-2xl"></i>
                     </div>
                     <div class="flex-1">
                       <h4
-                        class="card-title text-2xl font-bold mb-2 text-gray-800 transition-all"
+                        class="card-title text-xl sm:text-2xl font-bold mb-2 text-gray-800 transition-all"
                       >
                         Latihan Soal
                       </h4>
@@ -856,7 +832,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     Aplikasi Matriks
                   </h4>
@@ -880,7 +856,7 @@
           <!-- Bab 3: Transformasi Geometri -->
           <div x-show="activeTab === 'bab3'" x-transition class="grid gap-8">
             <div class="text-center mb-8">
-              <h3 class="text-3xl font-bold text-primary mb-2">
+              <h3 class="text-2xl sm:text-3xl font-bold text-primary mb-2">
                 Bab 3: Transformasi Geometri
               </h3>
               <p class="text-gray-600">
@@ -906,7 +882,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     Translasi
                   </h4>
@@ -943,7 +919,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     Refleksi
                   </h4>
@@ -980,7 +956,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     Rotasi
                   </h4>
@@ -1019,7 +995,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     Dilatasi
                   </h4>
@@ -1056,7 +1032,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     Komposisi
                   </h4>
@@ -1093,7 +1069,7 @@
                     >
                   </div>
                   <h4
-                    class="card-title text-xl font-bold mb-3 text-gray-800 transition-all"
+                    class="card-title text-lg sm:text-xl font-bold mb-3 text-gray-800 transition-all"
                   >
                     GeoGebra
                   </h4>
@@ -1120,13 +1096,13 @@
                 <div class="card-content">
                   <div class="flex items-start space-x-4">
                     <div
-                      class="card-icon w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center transition-all"
+                      class="card-icon w-14 h-14 sm:w-16 sm:h-16 bg-primary/10 rounded-2xl flex items-center justify-center transition-all"
                     >
-                      <i class="fas fa-pencil-alt text-primary text-2xl"></i>
+                      <i class="fas fa-pencil-alt text-primary text-xl sm:text-2xl"></i>
                     </div>
                     <div class="flex-1">
                       <h4
-                        class="card-title text-2xl font-bold mb-2 text-gray-800 transition-all"
+                        class="card-title text-xl sm:text-2xl font-bold mb-2 text-gray-800 transition-all"
                       >
                         Latihan Soal
                       </h4>
@@ -1152,49 +1128,49 @@
       </div>
     </section>
     <!-- About Section with Zigzag Layout -->
-    <section id="tentang" class="py-20 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-5xl font-bold gradient-text mb-4">Tentang SAMARA</h2>
-          <p class="text-xl text-gray-600">
+    <section id="tentang" class="py-16 sm:py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="text-3xl sm:text-5xl font-bold gradient-text mb-4">Tentang SAMARA</h2>
+          <p class="text-lg sm:text-xl text-gray-600">
             Mengenal lebih dekat platform pembelajaran matematika digital
           </p>
         </div>
         <div class="max-w-6xl mx-auto">
           <!-- Zigzag Layout -->
-          <div class="space-y-20">
+          <div class="space-y-16 lg:space-y-20">
             <!-- Feature 1 -->
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div
-                class="zigzag-left bg-gradient-to-br from-primary to-purple-700 p-12 rounded-3xl text-white"
+                class="zigzag-left bg-gradient-to-br from-primary to-purple-700 p-8 sm:p-12 rounded-3xl text-white"
               >
                 <div
-                  class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6"
+                  class="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6"
                 >
-                  <i class="fas fa-laptop-code text-white text-2xl"></i>
+                  <i class="fas fa-laptop-code text-white text-xl sm:text-2xl"></i>
                 </div>
-                <h3 class="text-3xl font-bold mb-4">Platform Digital Modern</h3>
-                <p class="text-purple-100 mb-6">
+                <h3 class="text-2xl sm:text-3xl font-bold mb-4">Platform Digital Modern</h3>
+                <p class="text-purple-100 mb-6 text-sm sm:text-base">
                   SAMARA menghadirkan pengalaman belajar matematika yang ramah
                   anak melalui aplikasi digital yang mudah diakses, memungkinkan
                   akses 24/7 dari mana saja.
                 </p>
                 <div class="flex items-center space-x-4">
                   <div class="text-center">
-                    <div class="text-2xl font-bold">100%</div>
-                    <div class="text-sm text-purple-200">Digital</div>
+                    <div class="text-xl sm:text-2xl font-bold">100%</div>
+                    <div class="text-xs sm:text-sm text-purple-200">Digital</div>
                   </div>
                   <div class="text-center">
-                    <div class="text-2xl font-bold">24/7</div>
-                    <div class="text-sm text-purple-200">Access</div>
+                    <div class="text-xl sm:text-2xl font-bold">24/7</div>
+                    <div class="text-xs sm:text-sm text-purple-200">Access</div>
                   </div>
                 </div>
               </div>
-              <div class="lg:pl-12">
-                <h4 class="text-2xl font-bold text-gray-800 mb-4">
+              <div class="lg:pl-8 lg:pl-12">
+                <h4 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
                   Teknologi Terkini
                 </h4>
-                <p class="text-gray-600 mb-6">
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
                   Menggunakan teknologi web terbaru untuk memberikan pengalaman
                   pengguna yang optimal, dengan antarmuka yang intuitif dan
                   responsif di berbagai perangkat.
@@ -1202,104 +1178,104 @@
                 <div class="space-y-3">
                   <div class="flex items-center space-x-3">
                     <i class="fas fa-check-circle text-green-500"></i>
-                    <span class="text-gray-700">Responsive design</span>
+                    <span class="text-gray-700 text-sm sm:text-base">Responsive design</span>
                   </div>
                   <div class="flex items-center space-x-3">
                     <i class="fas fa-check-circle text-green-500"></i>
-                    <span class="text-gray-700">Fast loading</span>
+                    <span class="text-gray-700 text-sm sm:text-base">Fast loading</span>
                   </div>
                   <div class="flex items-center space-x-3">
                     <i class="fas fa-check-circle text-green-500"></i>
-                    <span class="text-gray-700">Modern UI/UX</span>
+                    <span class="text-gray-700 text-sm sm:text-base">Modern UI/UX</span>
                   </div>
                 </div>
               </div>
             </div>
             <!-- Feature 2 -->
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div class="lg:order-2">
                 <div
-                  class="zigzag-right bg-gradient-to-br from-secondary to-white p-12 rounded-3xl"
+                  class="zigzag-right bg-gradient-to-br from-secondary to-white p-8 sm:p-12 rounded-3xl"
                 >
                   <div
-                    class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6"
+                    class="w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6"
                   >
-                    <i class="fas fa-users text-primary text-2xl"></i>
+                    <i class="fas fa-users text-primary text-xl sm:text-2xl"></i>
                   </div>
-                  <h3 class="text-3xl font-bold mb-4 text-primary">
+                  <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-primary">
                     Pembelajaran Ramah Anak
                   </h3>
-                  <p class="text-gray-700 mb-6">
+                  <p class="text-gray-700 mb-6 text-sm sm:text-base">
                     Menyediakan aplikasi matematika dengan antarmuka yang mudah
                     dipahami dan menarik bagi anak-anak.
                   </p>
-                  <div class="grid grid-cols-3 gap-4 text-center">
-                    <div class="bg-primary/10 rounded-xl p-3">
-                      <div class="text-xl font-bold text-primary">15+</div>
+                  <div class="grid grid-cols-3 gap-2 sm:gap-4 text-center">
+                    <div class="bg-primary/10 rounded-xl p-2 sm:p-3">
+                      <div class="text-lg sm:text-xl font-bold text-primary">15+</div>
                       <div class="text-xs text-gray-600">Sumber</div>
                     </div>
-                    <div class="bg-primary/10 rounded-xl p-3">
-                      <div class="text-xl font-bold text-primary">3</div>
+                    <div class="bg-primary/10 rounded-xl p-2 sm:p-3">
+                      <div class="text-lg sm:text-xl font-bold text-primary">3</div>
                       <div class="text-xs text-gray-600">Bab</div>
                     </div>
-                    <div class="bg-primary/10 rounded-xl p-3">
-                      <div class="text-xl font-bold text-primary">∞</div>
+                    <div class="bg-primary/10 rounded-xl p-2 sm:p-3">
+                      <div class="text-lg sm:text-xl font-bold text-primary">∞</div>
                       <div class="text-xs text-gray-600">Latihan</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="lg:order-1 lg:pr-12">
-                <h4 class="text-2xl font-bold text-gray-800 mb-4">
+              <div class="lg:order-1 lg:pr-8 lg:pr-12">
+                <h4 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
                   Sumber Belajar Terpercaya
                 </h4>
-                <p class="text-gray-600 mb-6">
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
                   Kami mencantum platform edukasi terkemuka seperti Zenius,
                   Quipper, dan MathCyber1997 untuk menyediakan materi
                   berkualitas tinggi.
                 </p>
-                <div class="flex flex-wrap gap-3">
+                <div class="flex flex-wrap gap-2 sm:gap-3">
                   <span
-                    class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm"
+                    class="px-3 sm:px-4 py-1 sm:py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm"
                     >Zenius</span
                   >
                   <span
-                    class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm"
+                    class="px-3 sm:px-4 py-1 sm:py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm"
                     >Quipper</span
                   >
                   <span
-                    class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm"
+                    class="px-3 sm:px-4 py-1 sm:py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm"
                     >MathCyber</span
                   >
                   <span
-                    class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm"
+                    class="px-3 sm:px-4 py-1 sm:py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm"
                     >GeoGebra</span
                   >
                 </div>
               </div>
             </div>
             <!-- Feature 3 -->
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div
-                class="zigzag-left bg-gradient-to-br from-green-500 to-teal-600 p-12 rounded-3xl text-white"
+                class="zigzag-left bg-gradient-to-br from-green-500 to-teal-600 p-8 sm:p-12 rounded-3xl text-white"
               >
                 <div
-                  class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6"
+                  class="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6"
                 >
-                  <i class="fas fa-chart-line text-white text-2xl"></i>
+                  <i class="fas fa-chart-line text-white text-xl sm:text-2xl"></i>
                 </div>
-                <h3 class="text-3xl font-bold mb-4">Visualisasi Interaktif</h3>
-                <p class="text-green-100 mb-6">
+                <h3 class="text-2xl sm:text-3xl font-bold mb-4">Visualisasi Interaktif</h3>
+                <p class="text-green-100 mb-6 text-sm sm:text-base">
                   Memanfaatkan GeoGebra untuk visualisasi konsep matematika
                   secara dinamis, membantu siswa memahami abstraksi melalui
                   representasi visual.
                 </p>
               </div>
-              <div class="lg:pl-12">
-                <h4 class="text-2xl font-bold text-gray-800 mb-4">
+              <div class="lg:pl-8 lg:pl-12">
+                <h4 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
                   Learning by Doing
                 </h4>
-                <p class="text-gray-600 mb-6">
+                <p class="text-gray-600 mb-6 text-sm sm:text-base">
                   Pendekatan pembelajaran yang menekankan pada praktek langsung
                   melalui simulasi dan visualisasi interaktif untuk pemahaman
                   konsep yang lebih baik.
@@ -1312,7 +1288,7 @@
                       <i class="fas fa-eye text-green-600 text-sm"></i>
                     </div>
                     <div>
-                      <h5 class="font-semibold text-gray-800">
+                      <h5 class="font-semibold text-gray-800 text-sm sm:text-base">
                         Visual Learning
                       </h5>
                       <p class="text-sm text-gray-600">
@@ -1327,7 +1303,7 @@
                       <i class="fas fa-hand-pointer text-green-600 text-sm"></i>
                     </div>
                     <div>
-                      <h5 class="font-semibold text-gray-800">Interactive</h5>
+                      <h5 class="font-semibold text-gray-800 text-sm sm:text-base">Interactive</h5>
                       <p class="text-sm text-gray-600">
                         Manipulasi objek secara real-time
                       </p>
@@ -1340,77 +1316,83 @@
         </div>
       </div>
     </section>
-    <div class="flex items-center justify-center py-14 px-4 sm:px-6">
-  <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 w-full max-w-md">
-    <div class="text-center mb-8">
-      <div class="bg-gradient-to-r from-green-400 to-blue-500 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-        <i class="fas fa-graduation-cap text-white text-2xl sm:text-3xl"></i>
-      </div>
-      <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Pengumpulan Tugas</h1>
-      <p class="text-gray-600 mt-2">
-        Silakan upload tugas Kamu ke Google Drive
-      </p>
-    </div>
     
-    <div class="space-y-6">
-      <div class="bg-blue-50 rounded-lg p-4 sm:p-5 border border-blue-100">
-        <h3 class="font-semibold text-blue-800 mb-3 flex items-center">
-          <i class="fas fa-info-circle mr-2"></i>
-          Petunjuk Pengumpulan
-        </h3>
-        <ul class="text-sm text-blue-700 space-y-2">
-          <li class="flex items-start">
-            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2 flex-shrink-0"></i>
-            <span>Klik tombol "Upload ke Google Drive" di bawah</span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2 flex-shrink-0"></i>
-            <span>
-              Beri nama file:
-              <span class="font-mono bg-blue-100 px-1 rounded inline-block break-all">
-                [Nama Lengkap]_[Nama Tugas]
-              </span>
-            </span>
-          </li>
-          <li class="flex items-start">
-            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2 flex-shrink-0"></i>
-            <span>Pastikan file sudah selesai sebelum diupload</span>
-          </li>
-        </ul>
+    <!-- Pengumpulan Tugas Section -->
+    <section class="py-14 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6">
+        <div class="flex items-center justify-center">
+          <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 w-full max-w-md">
+            <div class="text-center mb-8">
+              <div class="bg-gradient-to-r from-green-400 to-blue-500 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-graduation-cap text-white text-2xl sm:text-3xl"></i>
+              </div>
+              <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Pengumpulan Tugas</h1>
+              <p class="text-gray-600 mt-2">
+                Silakan upload tugas Kamu ke Google Drive
+              </p>
+            </div>
+            
+            <div class="space-y-6">
+              <div class="bg-blue-50 rounded-lg p-4 sm:p-5 border border-blue-100">
+                <h3 class="font-semibold text-blue-800 mb-3 flex items-center">
+                  <i class="fas fa-info-circle mr-2"></i>
+                  Petunjuk Pengumpulan
+                </h3>
+                <ul class="text-sm text-blue-700 space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2 flex-shrink-0"></i>
+                    <span>Klik tombol "Upload ke Google Drive" di bawah</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2 flex-shrink-0"></i>
+                    <span>
+                      Beri nama file:
+                      <span class="font-mono bg-blue-100 px-1 rounded inline-block break-all">
+                        [Nama Lengkap]_[Nama Tugas]
+                      </span>
+                    </span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2 flex-shrink-0"></i>
+                    <span>Pastikan file sudah selesai sebelum diupload</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <a
+                href="https://drive.google.com/drive/folders/15z9BmdViEwkuSMSUMauh5uh-pUGmxN_x?usp=sharing"
+                target="_blank"
+                class="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition duration-300 flex items-center justify-center text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              >
+                <i class="fab fa-google-drive mr-2 sm:mr-3 text-lg sm:text-xl"></i>
+                <span>Upload ke Google Drive</span>
+              </a>
+              
+              <div class="text-center text-sm text-gray-500 pt-4 border-t">
+                <p>Butuh bantuan? Hubungi guru</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      
-      <a
-        href="https://drive.google.com/drive/folders/15z9BmdViEwkuSMSUMauh5uh-pUGmxN_x?usp=sharing"
-        target="_blank"
-        class="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition duration-300 flex items-center justify-center text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-      >
-        <i class="fab fa-google-drive mr-2 sm:mr-3 text-lg sm:text-xl"></i>
-        <span>Upload ke Google Drive</span>
-      </a>
-      
-      <div class="text-center text-sm text-gray-500 pt-4 border-t">
-        <p>Butuh bantuan? Hubungi guru</p>
-      </div>
-    </div>
-  </div>
-</div>
-
+    </section>
+    
     <!-- Contact Section with Split Layout -->
     <section
       id="kontak"
-      class="py-20 bg-gradient-to-br from-gray-50 to-secondary/30"
+      class="py-16 sm:py-20 bg-gradient-to-br from-gray-50 to-secondary/30"
     >
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-5xl font-bold gradient-text mb-4">Hubungi Kami</h2>
-          <p class="text-xl text-gray-600">
+      <div class="container mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="text-3xl sm:text-5xl font-bold gradient-text mb-4">Hubungi Kami</h2>
+          <p class="text-lg sm:text-xl text-gray-600">
             Kami siap membantu dan mendengar masukan Anda
           </p>
         </div>
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12">
           <!-- Contact Form -->
-          <div class="bg-white rounded-3xl p-8 shadow-2xl">
-            <h3 class="text-2xl font-bold text-gray-800 mb-6">Kirim Pesan</h3>
+          <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6">Kirim Pesan</h3>
             <form class="space-y-6">
               <div class="grid md:grid-cols-2 gap-6">
                 <div>
@@ -1446,7 +1428,7 @@
               </div>
               <button
                 type="submit"
-                class="w-full bg-gradient-to-r from-primary to-purple-700 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition transform hover:scale-[1.02]"
+                class="w-full bg-gradient-to-r from-primary to-purple-700 text-white py-3 sm:py-4 rounded-xl font-semibold hover:shadow-lg transition transform hover:scale-[1.02]"
               >
                 <i class="fas fa-paper-plane mr-2"></i>
                 Kirim Pesan
@@ -1461,7 +1443,7 @@
                 class="bg-white rounded-2xl p-6 shadow-lg flex items-center space-x-4 hover:shadow-xl transition"
               >
                 <div
-                  class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center"
+                  class="w-12 h-12 sm:w-14 sm:h-14 bg-primary/10 rounded-2xl flex items-center justify-center"
                 >
                   <i class="fas fa-envelope text-primary text-xl"></i>
                 </div>
@@ -1469,7 +1451,7 @@
                   <h4 class="font-semibold text-gray-800">Email</h4>
                   <a
                     href="mailto:samara@example.com"
-                    class="text-primary hover:underline"
+                    class="text-primary hover:underline text-sm break-all"
                     >putuekawidyantiniputri@gmail.com</a
                   >
                 </div>
@@ -1478,7 +1460,7 @@
                 class="bg-white rounded-2xl p-6 shadow-lg flex items-center space-x-4 hover:shadow-xl transition"
               >
                 <div
-                  class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center"
+                  class="w-12 h-12 sm:w-14 sm:h-14 bg-green-100 rounded-2xl flex items-center justify-center"
                 >
                   <i class="fab fa-whatsapp text-green-600 text-xl"></i>
                 </div>
@@ -1510,9 +1492,9 @@
                 </iframe>
               </div>
               <a
-                href="https://share.google/UEb7vuHMGt7bx9sHu"
+                href="https://maps.google.com"
                 target="_blank"
-                class="inline-flex items-center text-primary hover:underline mt-3"
+                class="inline-flex items-center text-primary hover:underline mt-3 text-sm"
               >
                 <i class="fas fa-map-marker-alt mr-2"></i>
                 Buka di Google Maps
@@ -1524,21 +1506,21 @@
     </section>
     <!-- Unique Footer -->
     <footer class="bg-gray-900 text-white">
-      <div class="container mx-auto px-6 py-12">
+      <div class="container mx-auto px-4 sm:px-6 py-12">
         <div class="grid md:grid-cols-4 gap-8">
           <!-- Brand -->
           <div class="md:col-span-2">
             <div class="flex items-center space-x-3 mb-4">
               <div
-                class="w-12 h-12 bg-primary rounded-2xl transform rotate-45 flex items-center justify-center"
+                class="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-2xl transform rotate-45 flex items-center justify-center"
               >
                 <i
-                  class="fas fa-infinity text-white text-xl transform -rotate-45"
+                  class="fas fa-infinity text-white text-lg sm:text-xl transform -rotate-45"
                 ></i>
               </div>
-              <span class="text-2xl font-bold">SAMARA</span>
+              <span class="text-xl sm:text-2xl font-bold">SAMARA</span>
             </div>
-            <p class="text-gray-400 mb-6 max-w-md">
+            <p class="text-gray-400 mb-6 max-w-md text-sm sm:text-base">
               Platform aplikasi matematika yang ramah anak untuk generasi masa
               depan.
             </p>
@@ -1548,20 +1530,20 @@
             <h4 class="font-semibold mb-4">Navigasi Cepat</h4>
             <ul class="space-y-2 text-gray-400">
               <li>
-                <a href="#beranda" class="hover:text-white transition"
+                <a href="#beranda" class="hover:text-white transition text-sm"
                   >Beranda</a
                 >
               </li>
               <li>
-                <a href="#materi" class="hover:text-white transition">Materi</a>
+                <a href="#materi" class="hover:text-white transition text-sm">Materi</a>
               </li>
               <li>
-                <a href="#tentang" class="hover:text-white transition"
+                <a href="#tentang" class="hover:text-white transition text-sm"
                   >Tentang</a
                 >
               </li>
               <li>
-                <a href="#kontak" class="hover:text-white transition">Kontak</a>
+                <a href="#kontak" class="hover:text-white transition text-sm">Kontak</a>
               </li>
             </ul>
           </div>
@@ -1573,7 +1555,7 @@
                 <a
                   href="https://www.zenius.net"
                   target="_blank"
-                  class="hover:text-white transition"
+                  class="hover:text-white transition text-sm"
                   >Zenius</a
                 >
               </li>
@@ -1581,7 +1563,7 @@
                 <a
                   href="https://www.geogebra.org"
                   target="_blank"
-                  class="hover:text-white transition"
+                  class="hover:text-white transition text-sm"
                   >GeoGebra</a
                 >
               </li>
@@ -1589,7 +1571,7 @@
                 <a
                   href="https://www.youtube.com"
                   target="_blank"
-                  class="hover:text-white transition"
+                  class="hover:text-white transition text-sm"
                   >YouTube</a
                 >
               </li>
@@ -1597,7 +1579,7 @@
                 <a
                   href="https://www.quipper.com"
                   target="_blank"
-                  class="hover:text-white transition"
+                  class="hover:text-white transition text-sm"
                   >Quipper</a
                 >
               </li>
@@ -1610,7 +1592,7 @@
           <p class="text-gray-400 text-sm">
             &copy; 2025 SAMARA. All rights reserved.
           </p>
-          <div class="flex space-x-6 mt-4 md:mt-0 text-sm text-gray-400">
+          <div class="flex space-x-4 sm:space-x-6 mt-4 md:mt-0 text-sm text-gray-400">
             <a href="#" class="hover:text-white transition">Privacy Policy</a>
             <a href="#" class="hover:text-white transition">Terms of Service</a>
             <a href="#" class="hover:text-white transition">Cookie Policy</a>
@@ -1624,13 +1606,11 @@
           transform: translateY(0);
           opacity: 1;
         }
-
         100% {
           transform: translateY(10px);
           opacity: 0;
         }
       }
-
       .animate-scroll {
         animation: scroll 1.5s infinite;
       }
@@ -1638,10 +1618,8 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const form = document.querySelector("form");
-
         form.addEventListener("submit", function (e) {
           e.preventDefault();
-
           // Ambil nilai dari form
           const nama = document.querySelector(
             'input[placeholder="Nama"]'
@@ -1652,27 +1630,21 @@
           const pertanyaan = document.querySelector(
             'textarea[placeholder="Tulis pertanyaan Kamu di sini..."]'
           ).value;
-
           // Validasi sederhana
           if (!nama || !materi || !pertanyaan) {
             alert("Mohon lengkapi semua field!");
             return;
           }
-
           // Format pesan WhatsApp
           const pesan = `Halo Ms.Eka, Saya ${nama} ingin bertanya tentang materi ${materi}.\n\nPertanyaan saya:%0A${pertanyaan}`;
-
           // Nomor WhatsApp tujuan (ganti dengan nomor yang sesuai)
           const nomorWa = "6282145083835"; // Format: 62 + nomor hp tanpa 0 di depan
-
           // Buat URL WhatsApp
           const urlWa = `https://wa.me/${nomorWa}?text=${encodeURIComponent(
             pesan
           )}`;
-
           // Buka WhatsApp
           window.open(urlWa, "_blank");
-
           // Reset form setelah terkirim
           form.reset();
         });
